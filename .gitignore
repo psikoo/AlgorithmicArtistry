@@ -1,6 +1,7 @@
 .vscode
 /target
 effective-pom.xml
+settings.txt
 # Compiled class file
 *.class
 

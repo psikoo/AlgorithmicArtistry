@@ -4,11 +4,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.algorithmicArtistry</groupId>
-  <artifactId>algorithmicArtistry</artifactId>
+  <groupId>com.AlgoArt</groupId>
+  <artifactId>AlgoArt</artifactId>
   <version> 1</version>
 
-  <name>algorithmicArtistry</name>
+  <name>AlgoArt</name>
   <description>A framework to create frames in a cli program</description>
   <url>https://github.com/psikoo</url>
 
@@ -70,7 +70,7 @@
           <configuration>
             <archive>
               <manifest>
-                <mainClass>com.algorithmicArtistry.Main</mainClass>
+                <mainClass>com.AlgoArt.Main</mainClass>
               </manifest>
             </archive>
           </configuration>

@@ -1,4 +1,4 @@
-package com.algorithmicArtistry;
+package com.AlgoArt.utils.lib;
 
 public class Frame {
 
@@ -88,7 +88,8 @@ public class Frame {
         System.out.println();
         if((width-2)-input.length() == 0) { x = 1; } 
         else { x = (((width-2)-input.length())/2)+1; } // rounds down
-         
+        if(x < 0) x = 0; // avoids errors if string is longer than width
+
         for(int i = 0; i < input.length(); i++) {
             setWindowXY(y, x+i, input.toCharArray()[i]);
         }
