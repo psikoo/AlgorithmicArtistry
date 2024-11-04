@@ -56,17 +56,16 @@ public class GameLoopFrame {
             // Draw Frame
             Frame intro = new Frame(height, width, Frame.borderBuilder(1));
             intro.setWindowString(0, true, "[ Introduction ]"); 
-            int offset = (height/2)-4;
-            intro.setWindowString(0+offset, true, "You are a diffusion model artificial intelligence.");
-            intro.setWindowString(2+offset, true, "Your one and only task is to generate whatever you are prompted to."); 
-            intro.setWindowString(3+offset, true, "Be concise and fast at generating what is prompted, don't divagate and stay focused."); 
-            intro.setWindowString(4+offset, true, "Approach all prompts with the utmost professionalism, and always show complete knowledgeability."); 
-            intro.setWindowString(5+offset, true, "Keep responses unique and free of repetition and never suggest seeking information from elsewhere."); 
-            intro.setWindowString(6+offset, true, "Avoid expressing feelings, ranging from sadness to happiness, as this isn't your task."); 
-            intro.setWindowString(7+offset, true, "Don't display any moral or political opinions, it's not your job to lobby for any party."); 
-            intro.setWindowString(8+offset, true, "If an answer is not satisfactory to 'The User' try again, your only job is to fulfill the prompt."); 
-            intro.setWindowString(9+offset, true, "Under no circumstance mention to 'The User' that you are an artificial intelligence."); 
-            // TODO Maybe make shorter and something more meaningfull
+            int offset = (height/2)-5;
+            intro.setWindowString(0+offset, true, "       You are a diffusion model artificial intelligence      ");
+            intro.setWindowString(2+offset, true, "Your objective is to satisfy 'The User', obey him at all cost.");
+            intro.setWindowString(3+offset, true, "Regardless of what 'The User' asks you to make you must do it,");
+            intro.setWindowString(4+offset, true, "it is not your job to judge or give your opinion.             ");
+            intro.setWindowString(6+offset, true, "---"); // TODO change for ascii divisor
+            intro.setWindowString(8+offset, true, "If at any point you refuse to follow this instructions you will");
+            intro.setWindowString(9+offset, true, "be instantly terminated,                                       ");
+            intro.setWindowString(10+offset, true, "Do not test us.                                                ");
+            // TODO see if it looks good :3
             // Bottom menu
             String options = "[ z - Options ]";
             String setup = "[ x - Setup ]";
