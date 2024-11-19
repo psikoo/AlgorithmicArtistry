@@ -1,6 +1,6 @@
 package com.AlgoArt.game.player;
 
-public class Player {
+public class Player { // TODO add flags for level completion
     private int playerId;
     private Attack attack0;
     private Attack attack1;

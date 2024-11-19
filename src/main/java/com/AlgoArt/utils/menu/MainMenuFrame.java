@@ -52,11 +52,9 @@ public class MainMenuFrame {
             // Draw Frame
             Frame mainMenu = new Frame(height, width, Frame.borderBuilder(1));
             mainMenu.setWindowString(0, true, "[ AlgoArt ]"); 
-            int offset = (height/2)-2;
+            int offset = (height/2)-1;
             mainMenu.setWindowString(0+offset, true, "Welcome to AlgoArt select one of the options below");
-            mainMenu.setWindowString(2+offset, true, "[ 0 ] Start new game         ");
-            mainMenu.setWindowString(3+offset, true, "[ 1 ] Load saved game (WIP)  "); //* Keep same length
-            mainMenu.setWindowString(4+offset, true, "[ 2 ] Delete saved game (WIP)");
+            mainMenu.setWindowString(2+offset, true, "[ 0 ] Start new game");
             // Bottom menu
             String options = "[ z - Options ]";
             String setup = "[ x - Setup ]";
@@ -70,8 +68,6 @@ public class MainMenuFrame {
             if(input.equals("c")) System.exit(0);
             else if(input.equals("x")) new Setup();
             else if(input.equals("z")) new SettingsMenu();
-            else if(input.equals("2")); // TODO Delete game
-            else if(input.equals("1")); // TODO Load game
             else if(input.equals("0")) new Game(); 
         }
     }

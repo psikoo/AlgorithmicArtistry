@@ -12,8 +12,9 @@ public class GameLoop {
     public void gameTick() {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
-        //GameLoopFrame.mainState();
-        // TODO
+        GameLoopFrame.mainState();
+
+        // TODO check if game is finished
         scanner.nextLine();
     }
 }
