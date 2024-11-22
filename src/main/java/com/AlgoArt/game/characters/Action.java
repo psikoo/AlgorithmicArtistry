@@ -1,4 +1,4 @@
-package com.AlgoArt.game.player;
+package com.AlgoArt.game.characters;
 
 public class Action {
     private String name;

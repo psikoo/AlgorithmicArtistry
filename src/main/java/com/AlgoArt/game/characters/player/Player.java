@@ -1,14 +1,17 @@
-package com.AlgoArt.game.player;
+package com.AlgoArt.game.characters.player;
+
+import com.AlgoArt.game.characters.Action;
+import com.AlgoArt.game.characters.Attack;
 
 public class Player { // TODO add flags for level completion
-    private int playerId;
+    private String name;
     private Attack attack0;
     private Attack attack1;
     private Attack attack2;
     private Action action0;
     private Action action1;
 
-    public int getPlayerId() { return playerId; }
+    public String getName() { return name; }
     public Attack getAttack0() { return attack0; }
     public Attack getAttack1() { return attack1; }
     public Attack getAttack2() { return attack2; }
@@ -22,7 +25,7 @@ public class Player { // TODO add flags for level completion
     }
 
     private void dallE() {
-        playerId = PlayerId.DallE.ordinal();
+        name = "Dall-E";
         attack0 = new Attack("Data Overload", "The AI floods the opponent screen with information", 10, 10, 4, 10, 0);
         attack1 = new Attack("Chain Reaction", "The AI fires a series of responses damaging the opponent", 5, 0, 1, 5, 50);
         attack2 = new Attack("Misunderstand Prompt", "The AI sends a confusing response stunning the opponent", 0, 0, 0, 10, 0);
@@ -30,7 +33,7 @@ public class Player { // TODO add flags for level completion
         action1 = new Action("Against our policy", "The AI runs away hiding behind a popup");
     }
     private void midjourney() {
-        playerId = PlayerId.Midjourney.ordinal();
+        name = "Midjourney";
         attack0 = new Attack("Data Overload", "The AI floods the opponent screen with information", 10, 10, 4, 10, 0);
         attack1 = new Attack("Chain Reaction", "The AI fires a series of responses damaging the opponent", 5, 0, 1, 5, 50);
         attack2 = new Attack("Misunderstand Prompt", "The AI sends a confusing response stunning the opponent", 0, 0, 0, 10, 0);
@@ -39,7 +42,7 @@ public class Player { // TODO add flags for level completion
         //TODO Create unique attacks
     }
     private void stableD() {
-        playerId = PlayerId.StableDiffusion.ordinal();
+        name = "Stable Diffusion";
         attack0 = new Attack("Data Overload", "The AI floods the opponent screen with information", 10, 10, 4, 10, 0);
         attack1 = new Attack("Chain Reaction", "The AI fires a series of responses damaging the opponent", 5, 0, 1, 5, 50);
         attack2 = new Attack("Misunderstand Prompt", "The AI sends a confusing response stunning the opponent", 0, 0, 0, 10, 0);
