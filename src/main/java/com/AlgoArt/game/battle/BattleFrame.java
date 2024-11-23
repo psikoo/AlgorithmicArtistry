@@ -8,7 +8,7 @@ import com.AlgoArt.setup.Setup;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.lib.Frame;
 
-public class BattleFrame { // TODO
+public class BattleFrame { // TODO update menu to new standard
     private static boolean battleBattleEnd = false;
 
     public static void battle(Enemy enemy) {

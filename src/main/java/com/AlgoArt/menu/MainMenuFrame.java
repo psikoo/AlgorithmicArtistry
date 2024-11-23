@@ -3,7 +3,6 @@ package com.AlgoArt.menu;
 import java.util.Scanner;
 
 import com.AlgoArt.game.Game;
-import com.AlgoArt.setup.Setup;
 import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
@@ -48,12 +47,12 @@ public class MainMenuFrame {
         menuValidAction = false;
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
-        while (!menuValidAction) { // TODO never set to true?? infinite loop game may not end + check others there are other infinite loops
+        while (!menuValidAction) { // TODO never set to true?? infinite loop game may not end + check others there are other infinite loops, or maybe the while loop isnt needed remove if true
             // Draw Frame
             int offset = (Settings.getHeight()/2)-1;
             UI.standardWindow("AlgoArt")
                 .setWindowString(0+offset, true, "Welcome to AlgoArt select one of the options below")
-                .setWindowString(2+offset, true, "[ 0 ] Start new game")
+                .setWindowString(2+offset, true, "[ 0 ] Start new game                              ")
                 .print();
             // Controls
             String input = scanner.nextLine();

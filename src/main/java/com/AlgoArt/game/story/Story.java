@@ -1,8 +1,5 @@
 package com.AlgoArt.game.story;
 
-import com.AlgoArt.game.battle.Battle;
-import com.AlgoArt.game.characters.enemy.Enemy;
-
 public class Story {
     public Story(int storyLevel) {
         if(storyLevel == StoryLevel.fractal.ordinal()) fractal();
@@ -12,7 +9,6 @@ public class Story {
 
     private void fractal() {
         StoryFrame.fractal();
-        new Battle(Enemy.enemyBuilder("overseer"));
     }
     private void geom() {
         StoryFrame.geom();

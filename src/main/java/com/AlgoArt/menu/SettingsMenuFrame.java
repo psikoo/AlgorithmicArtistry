@@ -2,11 +2,9 @@ package com.AlgoArt.menu;
 
 import java.util.Scanner;
 
-import com.AlgoArt.game.Game;
 import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
-import com.AlgoArt.utils.lib.Frame;
 
 public class SettingsMenuFrame {
     private static boolean closeSettings = false;

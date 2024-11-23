@@ -2,6 +2,9 @@ package com.AlgoArt.game.story;
 
 import java.util.Scanner;
 
+import com.AlgoArt.game.battle.Battle;
+import com.AlgoArt.game.characters.enemy.Enemy;
+import com.AlgoArt.game.info.Info;
 import com.AlgoArt.menu.SettingsMenu;
 import com.AlgoArt.setup.Setup;
 import com.AlgoArt.utils.Inputs;
@@ -15,28 +18,45 @@ public class StoryFrame {
     private static boolean spiderEnd = false;
 
     public static void fractal() {
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        // Draw Frame
+        int offset = (Settings.getHeight()/2)-5;
+        UI.standardWindow("Fractal Block World")
+            .setWindowString(0+offset, true, "Prompt: My friend K is trapped in a fractal world. He told me the only way   ")
+            .setWindowString(1+offset, true, "        to free him is to find a Key to the Universe, it is not a traditional")
+            .setWindowString(2+offset, true, "        key but a piece of art.                                              ")
+            .setWindowString(4+offset, true, "- PROCESSING PROMPT -")
+            .setWindowString(6+offset, true, "        > 'The User' is requesting FractalKey.png aka Key to the Universe.   ")
+            .setWindowString(7+offset, true, "        > FractalKey.png is warded by the Overseer in the Ying World.        ")
+            .setWindowString(9+offset, true, "You will be transported to Ying World in a few seconds")
+            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .print();
+        // Controls
+        String input = scanner.nextLine();
+        Inputs.checkStandardInputs(input);
+        fractal2();
+    }
+    private static void fractal2() {
         fractalEnd = false;
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         while (!fractalEnd) {
             // Draw Frame
-            int offset = (Settings.getHeight()/2)-2; // TODO Change acording to story size
-            Frame frame = UI.standardWindow("Fractal Block World")
-                .setWindowString(0+offset, true, "This is a story tittle")
-                .setWindowString(Settings.getHeight()-2, 5, "Press enter to continue...")
+            int offset = (Settings.getHeight()/2)-3;
+            UI.standardWindow("Fractal Block World")
+                .setWindowString(0+offset, true, "Welcome to the Ying World!")
+                .setWindowString(2+offset, true, "You will need to fight the Overseer in order to obtain FractalKey.png")
+                .setWindowString(4+offset, true, "[ f ] Fight the Overseer                                             ")
+                .setWindowString(5+offset, true, "[ i ] Information about the Overseer                                 ")
+                .setWindowString(6+offset, true, "[ b ] Leave the Ying World                                           ")
                 .print();
-            // Input check
-            String input = scanner.nextLine(); // TODO come up with a fucking better solution, this sucks (game advances 1 frame on menu input)
+            // Controls
+            String input = scanner.nextLine();
+            if(input.equals("f")) new Battle(Enemy.enemyBuilder("overseer"));
+            if(input.equals("i")) new Info(Enemy.enemyBuilder("overseer"));
+            if(input.equals("b")) fractalEnd = true;;
             Inputs.checkStandardInputs(input);
-            // Input check and next lines
-            frame.setWindowString(2+offset, true, "line1                 ").print();
-            input = scanner.nextLine();
-            Inputs.checkStandardInputs(input);
-            // Input check and next lines
-            frame.setWindowString(3+offset, true, "line2                 ").print();
-            input = scanner.nextLine();
-            Inputs.checkStandardInputs(input);
-            fractalEnd = true;
         }
     }
 
