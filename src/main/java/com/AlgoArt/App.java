@@ -3,9 +3,9 @@ package com.AlgoArt;
 import java.io.File;
 import java.util.Scanner;
 
+import com.AlgoArt.menu.MainMenu;
+import com.AlgoArt.setup.Setup;
 import com.AlgoArt.utils.Settings;
-import com.AlgoArt.utils.menu.MainMenu;
-import com.AlgoArt.utils.setup.Setup;
 
 public class App {
     public App(String[] args) {

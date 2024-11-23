@@ -3,12 +3,12 @@ package com.AlgoArt.game.battle;
 import java.util.Scanner;
 
 import com.AlgoArt.game.characters.enemy.Enemy;
+import com.AlgoArt.menu.SettingsMenu;
+import com.AlgoArt.setup.Setup;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.lib.Frame;
-import com.AlgoArt.utils.menu.SettingsMenu;
-import com.AlgoArt.utils.setup.Setup;
 
-public class BattleFrame {
+public class BattleFrame { // TODO
     private static boolean battleBattleEnd = false;
 
     public static void battle(Enemy enemy) {
@@ -20,10 +20,10 @@ public class BattleFrame {
             int width = Settings.getWidth();
             // Draw Frame
             Frame battle = new Frame(height, width, Frame.borderBuilder(1));
-            battle.setWindowString(0, true, "[ "+enemy.getName()+" Battle ]");
+            battle.setWindowString(0, true, "[ "+enemy.getName()+" ]");
             battle.divider(6);
             battle.divider(height-8);
-            // TODO Add story text, 1 line then press enter for next line 
+            updateUI(battle, enemy);
             // Bottom menu
             String options = "[ z - Options ]";
             String setup = "[ x - Setup ]";
@@ -40,5 +40,9 @@ public class BattleFrame {
             else battleBattleEnd = true;
         }
     }
-    // TODO
+
+    private static void updateUI(Frame battle, Enemy enemy) {
+        battle.setWindowString(2, 3, enemy.getName());
+        battle.setWindowString(3, 3, Integer.toString(enemy.getMaxHP()));
+    }
 }

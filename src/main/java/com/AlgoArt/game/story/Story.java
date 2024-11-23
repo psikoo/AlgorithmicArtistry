@@ -12,7 +12,7 @@ public class Story {
 
     private void fractal() {
         StoryFrame.fractal();
-        new Battle(Enemy.enemyBuilder("a")); // TODO add enemy data
+        new Battle(Enemy.enemyBuilder("overseer"));
     }
     private void geom() {
         StoryFrame.geom();

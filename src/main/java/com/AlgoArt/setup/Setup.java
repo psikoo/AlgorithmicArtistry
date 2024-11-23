@@ -1,4 +1,4 @@
-package com.AlgoArt.utils.setup;
+package com.AlgoArt.setup;
 
 import com.AlgoArt.utils.Settings;
 

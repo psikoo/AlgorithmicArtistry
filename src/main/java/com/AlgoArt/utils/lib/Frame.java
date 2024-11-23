@@ -111,7 +111,7 @@ public class Frame {
         return this;
     }
 
-    public void print() {
+    public Frame print() {
         System.out.print("\033c\033[2J");
         for(int i = 0; i < window.length; i++) {
             String line = "";
@@ -120,6 +120,7 @@ public class Frame {
             }
             System.out.print(line+"\n");
         } 
+        return this;
     }
 
     // Border Builder

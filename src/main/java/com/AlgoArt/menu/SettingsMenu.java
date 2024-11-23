@@ -1,4 +1,4 @@
-package com.AlgoArt.utils.menu;
+package com.AlgoArt.menu;
 
 public class SettingsMenu {
     public SettingsMenu() {

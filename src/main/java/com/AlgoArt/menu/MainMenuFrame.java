@@ -1,11 +1,13 @@
-package com.AlgoArt.utils.menu;
+package com.AlgoArt.menu;
 
 import java.util.Scanner;
 
 import com.AlgoArt.game.Game;
+import com.AlgoArt.setup.Setup;
+import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
+import com.AlgoArt.utils.UI;
 import com.AlgoArt.utils.lib.Frame;
-import com.AlgoArt.utils.setup.Setup;
 
 public class MainMenuFrame {
     private static boolean menuValidAction = false;
@@ -34,10 +36,10 @@ public class MainMenuFrame {
             mainMenu.setWindowString(9+offset, true,  "                   Y8b d88P                                     ");
             mainMenu.setWindowString(10+offset, true, "                    'Y88P'                                      ");
             mainMenu.setWindowString(12+offset, true, "  By Hugo Hernandez                                         v1.0");
-            mainMenu.setWindowString(13+offset, true, "  Input a valid key and press enter to continue...              ");
-            mainMenu.print();
+            mainMenu.setWindowString(13+offset, true, "  Input a valid key and press enter to continue...              ").print();
+            // Controls
             String input = scanner.nextLine();
-            boolean valid = input.equals("jugones") || input.equals("password") || input.equals("a");
+            boolean valid = input.equals("jugones") || input.equals("0") || input.equals("a");
             if(valid) splashValidKey = true;
         }
     }
@@ -46,29 +48,17 @@ public class MainMenuFrame {
         menuValidAction = false;
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
-        while (!menuValidAction) {
-            int height = Settings.getHeight();
-            int width = Settings.getWidth();
+        while (!menuValidAction) { // TODO never set to true?? infinite loop game may not end + check others there are other infinite loops
             // Draw Frame
-            Frame mainMenu = new Frame(height, width, Frame.borderBuilder(1));
-            mainMenu.setWindowString(0, true, "[ AlgoArt ]"); 
-            int offset = (height/2)-1;
-            mainMenu.setWindowString(0+offset, true, "Welcome to AlgoArt select one of the options below");
-            mainMenu.setWindowString(2+offset, true, "[ 0 ] Start new game");
-            // Bottom menu
-            String options = "[ z - Options ]";
-            String setup = "[ x - Setup ]";
-            String exit = "[ c - Exit ]";
-            mainMenu.setWindowString(height-1, 3, options);
-            mainMenu.setWindowString(height-1, 3+options.length()+4, setup);
-            mainMenu.setWindowString(height-1, 3+options.length()+setup.length()+8, exit); 
-            mainMenu.print();
+            int offset = (Settings.getHeight()/2)-1;
+            UI.standardWindow("AlgoArt")
+                .setWindowString(0+offset, true, "Welcome to AlgoArt select one of the options below")
+                .setWindowString(2+offset, true, "[ 0 ] Start new game")
+                .print();
             // Controls
             String input = scanner.nextLine();
-            if(input.equals("c")) System.exit(0);
-            else if(input.equals("x")) new Setup();
-            else if(input.equals("z")) new SettingsMenu();
-            else if(input.equals("0")) new Game(); 
+            if(input.equals("0")) new Game();
+            Inputs.checkStandardInputs(input);
         }
     }
 }

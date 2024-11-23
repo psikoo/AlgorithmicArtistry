@@ -1,4 +1,4 @@
-package com.AlgoArt.utils.setup;
+package com.AlgoArt.setup;
 
 import java.util.Scanner;
 
@@ -19,23 +19,19 @@ public class SetupFrame {
             Frame sizeMenu = new Frame(height, width, Frame.borderBuilder(1));
             sizeMenu.setWindowString(0, true, "[ Size Setup ]"); 
             sizeMenu.setWindowString(2, true, "- Select the correct height -"); 
-            sizeMenu.setWindowString(3, true, "Leave 1 line empty at the bottom"); 
+            sizeMenu.setWindowString(2, true, "leave 1 empty line at the bottom"); 
             sizeMenu.divider(5);
-            sizeMenu.setWindowString(6, 2, "[ c ] confirm"); 
-            sizeMenu.setWindowString(7, 2, "[ + ] height + 1"); 
-            sizeMenu.setWindowString(8, 2, "[ - ] height - 1"); 
-            sizeMenu.setWindowString(9, 2, "[ ++ ] height + 10"); 
-            sizeMenu.setWindowString(10, 2, "[ -- ] height - 10"); 
-            sizeMenu.setWindowString(12, 2, "[ height = "+height+" ]"); 
-            sizeMenu.setWindowString(13, 2, "[ width = "+width+" ]"); 
+            sizeMenu.setWindowString(6, 2, "[ height = "+height+" ]"); 
+            sizeMenu.setWindowString(7, 2, "[ width = "+width+" ]");
+            sizeMenu.setWindowString(9, 2, "[ +num ] height + number"); 
+            sizeMenu.setWindowString(10, 2, "[ -num ] height - number");
+            sizeMenu.setWindowString(11, 2, "[ c ] confirm"); 
             sizeMenu.print();
             // Controls
             String input = scanner.nextLine();
             if(input.equals("c")) confirmHeight = true;
-            else if(input.equals("+")) height++;
-            else if(input.equals("-")) height--;
-            else if(input.equals("++")) height += 10;
-            else if(input.equals("--")) height -= 10;
+            else if(input.charAt(0) == '+') height+=extractNumber(input);
+            else if(input.charAt(0) == '-') height-=extractNumber(input);
         }
         return height;
     }
@@ -50,22 +46,23 @@ public class SetupFrame {
             sizeMenu.setWindowString(0, true, "[ Size Setup ]"); 
             sizeMenu.setWindowString(2, true, "- Select the correct width -"); 
             sizeMenu.divider(5);
-            sizeMenu.setWindowString(6, 2, "[ c ] confirm"); 
-            sizeMenu.setWindowString(7, 2, "[ + ] width + 1"); 
-            sizeMenu.setWindowString(8, 2, "[ - ] width - 1"); 
-            sizeMenu.setWindowString(9, 2, "[ ++ ] width + 20"); 
-            sizeMenu.setWindowString(10, 2, "[ -- ] width - 20"); 
-            sizeMenu.setWindowString(12, 2, "[ height = "+height+" ]"); 
-            sizeMenu.setWindowString(13, 2, "[ width = "+width+" ]"); 
+            sizeMenu.setWindowString(6, 2, "[ height = "+height+" ]"); 
+            sizeMenu.setWindowString(7, 2, "[ width = "+width+" ]");
+            sizeMenu.setWindowString(9, 2, "[ +num ] width + number"); 
+            sizeMenu.setWindowString(10, 2, "[ -num ] width - number");
+            sizeMenu.setWindowString(11, 2, "[ c ] confirm"); 
             sizeMenu.print();
             // Controls
             String input = scanner.nextLine();
             if(input.equals("c")) confirmWidth = true;
-            else if(input.equals("+")) width++;
-            else if(input.equals("-")) width--;
-            else if(input.equals("++")) width += 20;
-            else if(input.equals("--")) width -= 20;
+            else if(input.charAt(0) == '+') width+=extractNumber(input);
+            else if(input.charAt(0) == '-') width-=extractNumber(input);
         }
         return width;
+    }
+
+    private static int extractNumber(String string) {
+        try { return Integer.valueOf(string.substring(1)); } 
+        catch (Exception ignore) { return 0; }
     }
 }
