@@ -3,7 +3,7 @@ package com.AlgoArt.game.characters.player;
 import com.AlgoArt.game.characters.Action;
 import com.AlgoArt.game.characters.Attack;
 
-public class Player { // TODO add flags for level completion
+public class Player { // TODO add flags for level completion (or straight up rework class based on new Enemy class)
     private String name;
     private Attack attack0;
     private Attack attack1;

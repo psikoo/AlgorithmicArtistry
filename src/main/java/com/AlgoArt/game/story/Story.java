@@ -12,11 +12,9 @@ public class Story {
     }
     private void geom() {
         StoryFrame.geom();
-        // TODO Add battle
     }
     private void spider() {
         StoryFrame.spider();
-        // TODO Add battle
     }
 
 

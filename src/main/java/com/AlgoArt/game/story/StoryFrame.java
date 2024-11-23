@@ -5,12 +5,9 @@ import java.util.Scanner;
 import com.AlgoArt.game.battle.Battle;
 import com.AlgoArt.game.characters.enemy.Enemy;
 import com.AlgoArt.game.info.Info;
-import com.AlgoArt.menu.SettingsMenu;
-import com.AlgoArt.setup.Setup;
 import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
-import com.AlgoArt.utils.lib.Frame;
 
 public class StoryFrame {
     private static boolean fractalEnd = false;
@@ -53,66 +50,96 @@ public class StoryFrame {
                 .print();
             // Controls
             String input = scanner.nextLine();
-            if(input.equals("f")) new Battle(Enemy.enemyBuilder("overseer"));
+            if(input.equals("f")) { new Battle(Enemy.enemyBuilder("overseer")); fractalEnd = true; }
             if(input.equals("i")) new Info(Enemy.enemyBuilder("overseer"));
-            if(input.equals("b")) fractalEnd = true;;
+            if(input.equals("b")) fractalEnd = true;
             Inputs.checkStandardInputs(input);
         }
     }
 
-    public static void geom() {
+    public static void geom() { // TODO change lore
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        // Draw Frame
+        int offset = (Settings.getHeight()/2)-5;
+        UI.standardWindow("Geometrical Dominator")
+            .setWindowString(0+offset, true, "Prompt: My friend K is trapped in a fractal world. He told me the only way   ")
+            .setWindowString(1+offset, true, "        to free him is to find a Key to the Universe, it is not a traditional")
+            .setWindowString(2+offset, true, "        key but a piece of art.                                              ")
+            .setWindowString(4+offset, true, "- PROCESSING PROMPT -")
+            .setWindowString(6+offset, true, "        > 'The User' is requesting FractalKey.png aka Key to the Universe.   ")
+            .setWindowString(7+offset, true, "        > FractalKey.png is warded by the Overseer in the Ying World.        ")
+            .setWindowString(9+offset, true, "You will be transported to Ying World in a few seconds")
+            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .print();
+        // Controls
+        String input = scanner.nextLine();
+        Inputs.checkStandardInputs(input);
+        geom2();
+    }
+    private static void geom2() { // TODO change lore
         geomEnd = false;
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         while (!geomEnd) {
-            int height = Settings.getHeight();
-            int width = Settings.getWidth();
             // Draw Frame
-            Frame geom = new Frame(height, width, Frame.borderBuilder(1));
-            geom.setWindowString(0, true, "[ Geometrical Dominator ]");
-            // TODO Add story text, 1 line then press enter for next line 
-            // Bottom menu
-            String options = "[ z - Options ]";
-            String setup = "[ x - Setup ]";
-            String exit = "[ c - Exit ]";
-            geom.setWindowString(height-1, 3, options);
-            geom.setWindowString(height-1, 3+options.length()+4, setup);
-            geom.setWindowString(height-1, 3+options.length()+setup.length()+8, exit); 
-            geom.print();
-            String input = scanner.nextLine();
+            int offset = (Settings.getHeight()/2)-3;
+            UI.standardWindow("Geometrical Dominator")
+                .setWindowString(0+offset, true, "Welcome to the Ying World!")
+                .setWindowString(2+offset, true, "You will need to fight the Overseer in order to obtain FractalKey.png")
+                .setWindowString(4+offset, true, "[ f ] Fight the Overseer                                             ")
+                .setWindowString(5+offset, true, "[ i ] Information about the Overseer                                 ")
+                .setWindowString(6+offset, true, "[ b ] Leave the Ying World                                           ")
+                .print();
             // Controls
-            if(input.equals("c")) System.exit(0);
-            else if(input.equals("x")) new Setup();
-            else if(input.equals("z")) new SettingsMenu();
-            else geomEnd = true;
+            String input = scanner.nextLine();
+            if(input.equals("f")) { new Battle(Enemy.enemyBuilder("demonGuardian")); geomEnd = true; }
+            if(input.equals("i")) new Info(Enemy.enemyBuilder("demonGuardian"));
+            if(input.equals("b")) geomEnd = true;
+            Inputs.checkStandardInputs(input);
         }
     }
 
-    public static void spider() {
+    public static void spider() { // TODO change lore
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        // Draw Frame
+        int offset = (Settings.getHeight()/2)-5;
+        UI.standardWindow("Spider Dance")
+            .setWindowString(0+offset, true, "Prompt: My friend K is trapped in a fractal world. He told me the only way   ")
+            .setWindowString(1+offset, true, "        to free him is to find a Key to the Universe, it is not a traditional")
+            .setWindowString(2+offset, true, "        key but a piece of art.                                              ")
+            .setWindowString(4+offset, true, "- PROCESSING PROMPT -")
+            .setWindowString(6+offset, true, "        > 'The User' is requesting FractalKey.png aka Key to the Universe.   ")
+            .setWindowString(7+offset, true, "        > FractalKey.png is warded by the Overseer in the Ying World.        ")
+            .setWindowString(9+offset, true, "You will be transported to Ying World in a few seconds")
+            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .print();
+        // Controls
+        String input = scanner.nextLine();
+        Inputs.checkStandardInputs(input);
+        spider2();
+    }
+    private static void spider2() { // TODO change lore
         spiderEnd = false;
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         while (!spiderEnd) {
-            int height = Settings.getHeight();
-            int width = Settings.getWidth();
             // Draw Frame
-            Frame spider = new Frame(height, width, Frame.borderBuilder(1));
-            spider.setWindowString(0, true, "[ Spider Dance ]");
-            // TODO Add story text, 1 line then press enter for next line 
-            // Bottom menu
-            String options = "[ z - Options ]";
-            String setup = "[ x - Setup ]";
-            String exit = "[ c - Exit ]";
-            spider.setWindowString(height-1, 3, options);
-            spider.setWindowString(height-1, 3+options.length()+4, setup);
-            spider.setWindowString(height-1, 3+options.length()+setup.length()+8, exit); 
-            spider.print();
-            String input = scanner.nextLine();
+            int offset = (Settings.getHeight()/2)-3;
+            UI.standardWindow("Spider Dance")
+                .setWindowString(0+offset, true, "Welcome to the Ying World!")
+                .setWindowString(2+offset, true, "You will need to fight the Overseer in order to obtain FractalKey.png")
+                .setWindowString(4+offset, true, "[ f ] Fight the Overseer                                             ")
+                .setWindowString(5+offset, true, "[ i ] Information about the Overseer                                 ")
+                .setWindowString(6+offset, true, "[ b ] Leave the Ying World                                           ")
+                .print();
             // Controls
-            if(input.equals("c")) System.exit(0);
-            else if(input.equals("x")) new Setup();
-            else if(input.equals("z")) new SettingsMenu();
-            else spiderEnd = true;
+            String input = scanner.nextLine();
+            if(input.equals("f")) { new Battle(Enemy.enemyBuilder("muffet")); spiderEnd = true; }
+            if(input.equals("i")) new Info(Enemy.enemyBuilder("muffet"));
+            if(input.equals("b")) spiderEnd = true;
+            Inputs.checkStandardInputs(input);
         }
     }
 }

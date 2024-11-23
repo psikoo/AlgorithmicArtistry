@@ -13,7 +13,7 @@ public class GameLoop {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         GameLoopFrame.mainState();
-
+        // TODO add lore with if checks
         // TODO check if game is finished
         scanner.nextLine();
     }
