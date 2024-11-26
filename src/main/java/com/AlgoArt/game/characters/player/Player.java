@@ -31,9 +31,9 @@ public class Player extends Character {
     public boolean getCompleteSpider() { return completeSpider; }
 
     public void setHP(int value) { super.setHP(value); }
-    public void setCompleteFractal() { completeFractal = true; }
-    public void setCompleteGeom() { completeGeom = true; }
-    public void setCompleteSpider() { completeSpider = true; }
+    public void setCompleteFractal(boolean bool) { completeFractal = bool; }
+    public void setCompleteGeom(boolean bool) { completeGeom = bool; }
+    public void setCompleteSpider(boolean bool) { completeSpider = bool; }
 
     public Player(String name, String description, int maxHP, Attack attack0, Attack attack1, Attack attack2, Action action0, Action action1) {
         super(name, description, maxHP, attack0, attack1, attack2, action0, action1);

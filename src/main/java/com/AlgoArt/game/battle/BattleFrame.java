@@ -79,9 +79,9 @@ public class BattleFrame {
     }
 
     public static void enemyLost() {
-        if(enemy.getName().equals("Overseer")) player.setCompleteFractal();
-        else if(enemy.getName().equals("Demon Guardian")) player.setCompleteGeom();
-        else if(enemy.getName().equals("Muffet")) player.getCompleteSpider();
+        if(enemy.getName().equals("Overseer")) player.setCompleteFractal(true);
+        else if(enemy.getName().equals("Demon Guardian")) player.setCompleteGeom(true);
+        else if(enemy.getName().equals("Muffet")) player.setCompleteFractal(true);
 
         battleEndScreenEnd = false;
         @SuppressWarnings("resource")
