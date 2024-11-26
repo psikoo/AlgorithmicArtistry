@@ -64,10 +64,15 @@ public class Frame {
                 for(int j = 0; j < width; j++) {
                     if(!(((i == 0) || (i == height-1)) || ((j == 0) || (j == width-1)))) {
                         if(window[i][j] != border[0]) { window[i][j] = border[8]; }
-                    } else { 
-                        
                     }
                 }
+            }
+        }
+        return this;
+    } public Frame empty(int line) {
+        for(int j = 0; j < width; j++) {
+            if(!(((line == 0) || (line == height-1)) || ((j == 0) || (j == width-1)))) {
+                if(window[line][j] != border[0]) { window[line][j] = border[8]; }
             }
         }
         return this;

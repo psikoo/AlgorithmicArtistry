@@ -28,9 +28,9 @@ public class GameLoopFrame {
                 .print();
             // Controls
             String input = scanner.nextLine();
-            if(input.equals("0")) { new Player(0); characterSelected = true; }
-            else if(input.equals("1")) { new Player(1); characterSelected = true; }
-            else if(input.equals("0")) { new Player(2); characterSelected = true; }
+            if(input.equals("0")) { Player.playerBuilder(Player.PlayerId.DallE.ordinal()); characterSelected = true; }
+            else if(input.equals("1")) { Player.playerBuilder(Player.PlayerId.Midjourney.ordinal()); characterSelected = true; }
+            else if(input.equals("2")) { Player.playerBuilder(Player.PlayerId.StableDiffusion.ordinal()); characterSelected = true; }
             Inputs.checkStandardInputs(input);
         }
     }

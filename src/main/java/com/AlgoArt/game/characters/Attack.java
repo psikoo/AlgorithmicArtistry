@@ -34,4 +34,8 @@ public class Attack {
         this.missChance = missChance;
         this.multipleChance = multipleChance;
     }
+
+    public static Attack genericAttackBuilder() {
+        return new Attack("GenericAttack", "GenericAttackDesc", 0, 0, 0, 0, 0);
+    }
 }
