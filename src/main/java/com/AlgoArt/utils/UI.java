@@ -15,7 +15,8 @@ public class UI {
     public static Frame standardWindow(String tittle, String bottomMenu) {
         Frame frame = new Frame(Settings.getHeight(), Settings.getWidth(), Frame.borderBuilder(1))
             .setWindowString(0, true, "[ "+tittle+" ]"); 
-            if(bottomMenu.equalsIgnoreCase("back")) UI.backMenu(frame);
+            if(bottomMenu.equalsIgnoreCase("empty")) frame.print();
+            else if(bottomMenu.equalsIgnoreCase("back")) UI.backMenu(frame);
         return frame;
     }
 

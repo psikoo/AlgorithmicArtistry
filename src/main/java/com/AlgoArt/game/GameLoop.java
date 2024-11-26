@@ -1,6 +1,6 @@
 package com.AlgoArt.game;
 
-import java.util.Scanner;
+import com.AlgoArt.game.characters.player.Player;
 
 public class GameLoop {
     public GameLoop() {
@@ -10,11 +10,7 @@ public class GameLoop {
     }
 
     public void gameTick() {
-        @SuppressWarnings("resource")
-        Scanner scanner = new Scanner(System.in);
-        GameLoopFrame.mainState();
-        // TODO add lore with if checks
-        // TODO check if game is finished
-        scanner.nextLine();
+        GameLoopFrame.mainState(); // TODO THIS IS NEVER REACHED vvv why?
+        if(Player.player.getCompleteFractal() && Player.player.getCompleteGeom() && Player.player.getCompleteSpider()) Game.setEnding("true");
     }
 }

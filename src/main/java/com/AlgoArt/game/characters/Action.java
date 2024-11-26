@@ -24,4 +24,7 @@ public class Action {
     public static Action genericActionBuilder() {
         return new Action("GenericAction", "GenericActionDesc", 0, 0, 0);
     }
+    public static Action fullHeal() {
+        return new Action("Heal", "Heal", 1000, 0, 0);
+    }
 }

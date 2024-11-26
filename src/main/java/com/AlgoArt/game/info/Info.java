@@ -26,7 +26,7 @@ public class Info {
             // Controls
             String input = scanner.nextLine();
             if(input.equals("b")) closeInfo = true;
-            else if(input.equals("p")) new Image(enemy);
+            else if(input.equals("p")) new Image("enemy", enemy.getName());
             Inputs.checkStandardInputs(input);
         }
     }

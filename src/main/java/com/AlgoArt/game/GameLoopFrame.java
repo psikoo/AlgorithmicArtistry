@@ -11,7 +11,6 @@ import com.AlgoArt.utils.UI;
 public class GameLoopFrame {
     private static boolean characterSelected = false;
     private static boolean introEnd = false;
-    private static boolean mainStateExit = false;
 
     public static void characterSelect() {
         characterSelected = false;
@@ -61,24 +60,21 @@ public class GameLoopFrame {
     }
 
     public static void mainState() {
-        mainStateExit = false;
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
-        while (!mainStateExit) {
-            // Draw Frame
-            int offset = (Settings.getHeight()/2)-2;
-            UI.standardWindow("Prompt Queue")
-                .setWindowString(0+offset, true, "Welcome to the prompt queue, select a prompt to work on:")
-                .setWindowString(2+offset, true, "[ 0 ] Fractal Block World                               ")
-                .setWindowString(3+offset, true, "[ 1 ] Geometrical Dominator                             ") 
-                .setWindowString(4+offset, true, "[ 2 ] Spider Dance                                      ")
-                .print();
-            // Controls
-            String input = scanner.nextLine();
-            if(input.equals("0")) new Story(Story.StoryLevel.fractal.ordinal());
-            else if(input.equals("1")) new Story(Story.StoryLevel.geom.ordinal());
-            else if(input.equals("2")) new Story(Story.StoryLevel.spider.ordinal());
-            Inputs.checkStandardInputs(input);
-        }
+        // Draw Frame
+        int offset = (Settings.getHeight()/2)-2;
+        UI.standardWindow("Prompt Queue")
+            .setWindowString(0+offset, true, "Welcome to the prompt queue, select a prompt to work on:")
+            .setWindowString(2+offset, true, "[ 0 ] Fractal Block World                               ")
+            .setWindowString(3+offset, true, "[ 1 ] Geometrical Dominator                             ") 
+            .setWindowString(4+offset, true, "[ 2 ] Spider Dance                                      ")
+            .print();
+        // Controls
+        String input = scanner.nextLine();
+        if(input.equals("0")) new Story(Story.StoryLevel.fractal.ordinal());
+        else if(input.equals("1")) new Story(Story.StoryLevel.geom.ordinal());
+        else if(input.equals("2")) new Story(Story.StoryLevel.spider.ordinal());
+        Inputs.checkStandardInputs(input);
     }
 }

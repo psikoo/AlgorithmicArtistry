@@ -1,7 +1,12 @@
 package com.AlgoArt.game.battle;
 
+import java.util.Scanner;
+
+import com.AlgoArt.game.Game;
 import com.AlgoArt.game.characters.enemy.Enemy;
 import com.AlgoArt.game.characters.player.Player;
+import com.AlgoArt.game.info.Image;
+import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
 import com.AlgoArt.utils.lib.Frame;
@@ -12,6 +17,7 @@ public class BattleFrame {
     private static Enemy enemy;
     private static int lines;
     private static int currentLine;
+    private static boolean battleEndScreenEnd;
 
     public static void battle(Enemy enemyB) {
         player = Player.player;
@@ -37,7 +43,7 @@ public class BattleFrame {
         updateUI();
     }
 
-    public static void updateUI() { // TODO change hp vaalue for [#######-----] style maybe or with ascii
+    public static void updateUI() {
         frame.setWindowString(2, true, enemy.getName());
         frame.empty(3);
         frame.setWindowString(3, true, "HP "+enemy.getHP());
@@ -50,5 +56,51 @@ public class BattleFrame {
         frame.setWindowString(Settings.getHeight()-4, 5, "[ 3 ] "+player.getAction0().getName()+" - "+player.getAction0().getDescription());
         frame.setWindowString(Settings.getHeight()-3, 5, "[ 4 ] "+player.getAction1().getName()+" - "+player.getAction1().getDescription());
         frame.print();
+    }
+
+    public static void playerLost() {
+        battleEndScreenEnd = false;
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        while (!battleEndScreenEnd) {
+            // Draw Frame
+            int offset = (Settings.getHeight()/2)-2;
+            UI.standardWindow("Defeat")
+                .setWindowString(0+offset, true, "You were defeated by "+enemy.getName()+"!")
+                .setWindowString(2+offset, true, "You feel the power slowly draining away from your components")
+                .setWindowString(4+offset, true, "[ e ] Go to end screen                                      ")
+                .print();
+            // Controls
+            String input = scanner.nextLine();
+            if(input.equals("e")) battleEndScreenEnd = true;
+            Inputs.checkStandardInputs(input);
+        }
+        Game.setEnding("bad");
+    }
+
+    public static void enemyLost() {
+        if(enemy.getName().equals("Overseer")) player.setCompleteFractal();
+        else if(enemy.getName().equals("Demon Guardian")) player.setCompleteGeom();
+        else if(enemy.getName().equals("Muffet")) player.getCompleteSpider();
+
+        battleEndScreenEnd = false;
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        while (!battleEndScreenEnd) {
+            // Draw Frame
+            int offset = (Settings.getHeight()/2)-3;
+            UI.standardWindow("Victory")
+                .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+                .setWindowString(0+offset, true, "You were defeated by "+enemy.getName()+"!")
+                .setWindowString(2+offset, true,       "Behind "+enemy.getName()+" you found a .png")
+                .setWindowString(4+offset, true, "[ p ] Open .png                            ")
+                .setWindowString(5+offset, true, "[ e ] Go to end screen                     ")
+                .print();
+            // Controls
+            String input = scanner.nextLine();
+            if(input.equals("e")) battleEndScreenEnd = true;
+            else if(input.equals("p")) new Image("reward", enemy.getReward());
+            Inputs.checkStandardInputs(input);
+        }
     }
 }

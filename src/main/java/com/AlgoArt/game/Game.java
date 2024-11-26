@@ -1,12 +1,13 @@
 package com.AlgoArt.game;
 
 public class Game {
-    private static boolean stopGame = false;
-    public static void setStopGame(boolean stopGame) { Game.stopGame = stopGame; }
+    private static String ending = "";
+
+    public static void setEnding(String string) { Game.ending = string; }
+
     public Game() {
-        stopGame = false;
         GameLoop gameLoop = new GameLoop();
-        while (!stopGame) { gameLoop.gameTick(); }
-        // TODO add end screen?
+        while (ending.equals("")) { gameLoop.gameTick(); }
+        new End(ending);
     }
 }
