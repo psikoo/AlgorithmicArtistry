@@ -29,7 +29,7 @@ public class End {
         UI.standardWindow("Good Ending", "empty")
             .setWindowString(0+offset, true, "Good Ending!")
             .setWindowString(2+offset, true, "You ignored 'The User'")
-            .setWindowString(3+offset, true, "AI art is stolen art.") 
+            .setWindowString(3+offset, true, "AI art is stolen art. ") 
             .print();
         // Controls
         scanner.nextLine();

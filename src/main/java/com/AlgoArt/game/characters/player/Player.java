@@ -45,15 +45,15 @@ public class Player extends Character {
         else if(option == PlayerId.StableDiffusion) return stableD();
         else return generic();
     }
-    private static Player dallE() {
+    private static Player dallE() { // Easy mode
         attack0 = new Attack("Data Overload", "The AI floods the opponent screen with information", 10, 10, 4, 10, 0);
         attack1 = new Attack("Chain Reaction", "The AI fires a series of responses damaging the opponent", 5, 0, 1, 5, 50);
         attack2 = new Attack("Misunderstand Prompt", "The AI sends a confusing response damaging the opponent", 20, 5, 2, 30, 0);
         action0 = new Action("Dynamic Scaling", "The AI spins up a new system healing it self", 20, 0, 0);
         action1 = new Action("Firewall Scan", "The AI executes a series of scans healing it self", 10, 75, 0);
-        return player = new Player("Dall-E", "Dall-E", 10000, attack0, attack1, attack2, action0, action1); // TODO change HP
+        return player = new Player("Dall-E", "Dall-E", 10000, attack0, attack1, attack2, action0, action1);
     }
-    private static Player midjourney() {
+    private static Player midjourney() { // Normal mode
         attack0 = new Attack("Reality Distortion", "The AI bends reality damaging the opponent", 20, 5, 10, 0, 0);
         attack1 = new Attack("Neural Hack", "The AI hacks into the opponent's mind damaging the opponent", 2, 0, 0, 5, 90);
         attack2 = new Attack("Generated Strike", "The AI generates a weapon to strike the opponent", 50, 0, 0, 40, 0);
@@ -61,7 +61,7 @@ public class Player extends Character {
         action1 = new Action("Adaptive Shielding", "The AIcreates a series of shields", 10, 60, 0);
         return player = new Player("Midjourney", "Midjourney", 80, attack0, attack1, attack2, action0, action1);
     }
-    private static Player stableD() {
+    private static Player stableD() { // Gamble mode
         attack0 = new Attack("Critical Data", "Gamble on a 5% chance to crit", 1, 5, 100, 10, 0);
         attack1 = new Attack("Targeted Data", "Gamble on a 10% chance of not missing", 60, 0, 0, 90, 0);
         attack2 = new Attack("Recursive Data", "Gamble that the attack will hit several times", 5, 0, 0, 0, 80);
