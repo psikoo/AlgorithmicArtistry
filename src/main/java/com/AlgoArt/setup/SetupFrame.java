@@ -29,7 +29,8 @@ public class SetupFrame {
             sizeMenu.print();
             // Controls
             String input = scanner.nextLine();
-            if(input.equals("c")) confirmHeight = true;
+            if(input.isBlank() || input.isEmpty());
+            else if(input.equals("c")) confirmHeight = true;
             else if(input.charAt(0) == '+') height+=extractNumber(input);
             else if(input.charAt(0) == '-') height-=extractNumber(input);
         }

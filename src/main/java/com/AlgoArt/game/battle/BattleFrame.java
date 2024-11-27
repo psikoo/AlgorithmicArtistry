@@ -81,7 +81,7 @@ public class BattleFrame {
     public static void enemyLost() {
         if(enemy.getName().equals("Overseer")) player.setCompleteFractal(true);
         else if(enemy.getName().equals("Demon Guardian")) player.setCompleteGeom(true);
-        else if(enemy.getName().equals("Muffet")) player.setCompleteFractal(true);
+        else if(enemy.getName().equals("Muffet")) player.setCompleteSpider(true);
 
         battleEndScreenEnd = false;
         @SuppressWarnings("resource")
@@ -90,11 +90,10 @@ public class BattleFrame {
             // Draw Frame
             int offset = (Settings.getHeight()/2)-3;
             UI.standardWindow("Victory")
-                .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
                 .setWindowString(0+offset, true, "You were defeated by "+enemy.getName()+"!")
                 .setWindowString(2+offset, true,       "Behind "+enemy.getName()+" you found a .png")
                 .setWindowString(4+offset, true, "[ p ] Open .png                            ")
-                .setWindowString(5+offset, true, "[ e ] Go to end screen                     ")
+                .setWindowString(5+offset, true, "[ e ] Exit to prompt queue                 ")
                 .print();
             // Controls
             String input = scanner.nextLine();

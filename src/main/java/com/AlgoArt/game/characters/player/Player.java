@@ -39,44 +39,38 @@ public class Player extends Character {
         super(name, description, maxHP, attack0, attack1, attack2, action0, action1);
     }
 
-    public static Player playerBuilder(int option) {
-        if(option == PlayerId.DallE.ordinal()) return dallE();
-        else if(option == PlayerId.Midjourney.ordinal()) return midjourney();
-        else if(option == PlayerId.StableDiffusion.ordinal()) return stableD();
+    public static Player playerBuilder(PlayerId option) {
+        if(option == PlayerId.DallE) return dallE();
+        else if(option == PlayerId.Midjourney) return midjourney();
+        else if(option == PlayerId.StableDiffusion) return stableD();
         else return generic();
     }
-    private static Player dallE() { // TODO change "Against policy" text to fit a multi heal action instead of scape
+    private static Player dallE() {
         attack0 = new Attack("Data Overload", "The AI floods the opponent screen with information", 10, 10, 4, 10, 0);
         attack1 = new Attack("Chain Reaction", "The AI fires a series of responses damaging the opponent", 5, 0, 1, 5, 50);
-        attack2 = new Attack("Misunderstand Prompt", "The AI sends a confusing response stunning the opponent", 0, 0, 0, 10, 0);
-        action0 = new Action("Dynamic Scaling", "The AI spins up a new system healing it self", 100, 0, 0); // TODO change 100 healing
-        action1 = new Action("Against our policy", "The AI runs away hiding behind a popup", 10, 60, 0);
-        player = new Player("Dall-E", "Dall-E", 1000, attack0, attack1, attack2, action0, action1); // TODO change HP
-        return player;
+        attack2 = new Attack("Misunderstand Prompt", "The AI sends a confusing response damaging the opponent", 20, 5, 2, 30, 0);
+        action0 = new Action("Dynamic Scaling", "The AI spins up a new system healing it self", 20, 0, 0);
+        action1 = new Action("Firewall Scan", "The AI executes a series of scans healing it self", 10, 75, 0);
+        return player = new Player("Dall-E", "Dall-E", 10000, attack0, attack1, attack2, action0, action1); // TODO change HP
     }
     private static Player midjourney() {
-        attack0 = new Attack("Data Overload", "The AI floods the opponent screen with information", 10, 10, 4, 10, 0);
-        attack1 = new Attack("Chain Reaction", "The AI fires a series of responses damaging the opponent", 5, 0, 1, 5, 50);
-        attack2 = new Attack("Misunderstand Prompt", "The AI sends a confusing response stunning the opponent", 0, 0, 0, 10, 0);
-        action0 = new Action("Dynamic Scaling", "The AI spins up a new system healing it self", 25, 0, 0);
-        action1 = new Action("Against our policy", "The AI runs away hiding behind a popup", 10, 60, 0);
-        player = new Player("Midjourney", "Midjourney", 100, attack0, attack1, attack2, action0, action1);
-        return player;
-        //TODO Create unique attacks and change HP
+        attack0 = new Attack("Reality Distortion", "The AI bends reality damaging the opponent", 20, 5, 10, 0, 0);
+        attack1 = new Attack("Neural Hack", "The AI hacks into the opponent's mind damaging the opponent", 2, 0, 0, 5, 90);
+        attack2 = new Attack("Generated Strike", "The AI generates a weapon to strike the opponent", 50, 0, 0, 40, 0);
+        action0 = new Action("Holographic Decoy", "The AI creates a decoy and heals amongst the distraction", 25, 0, 10);
+        action1 = new Action("Adaptive Shielding", "The AIcreates a series of shields", 10, 60, 0);
+        return player = new Player("Midjourney", "Midjourney", 80, attack0, attack1, attack2, action0, action1);
     }
     private static Player stableD() {
-        attack0 = new Attack("Data Overload", "The AI floods the opponent screen with information", 10, 10, 4, 10, 0);
-        attack1 = new Attack("Chain Reaction", "The AI fires a series of responses damaging the opponent", 5, 0, 1, 5, 50);
-        attack2 = new Attack("Misunderstand Prompt", "The AI sends a confusing response stunning the opponent", 0, 0, 0, 10, 0);
-        action0 = new Action("Dynamic Scaling", "The AI spins up a new system healing it self", 25, 0, 0);
-        action1 = new Action("Against our policy", "The AI runs away hiding behind a popup", 10, 60, 0);
-        player = new Player("Stable Diffusion", "Stable Diffusion", 100, attack0, attack1, attack2, action0, action1);
-        return player;
-        //TODO Create unique attacks and change HP
+        attack0 = new Attack("Critical Data", "Gamble on a 5% chance to crit", 1, 5, 100, 10, 0);
+        attack1 = new Attack("Targeted Data", "Gamble on a 10% chance of not missing", 60, 0, 0, 90, 0);
+        attack2 = new Attack("Recursive Data", "Gamble that the attack will hit several times", 5, 0, 0, 0, 80);
+        action0 = new Action("Two in Three", "There is a 33% chance of this damaging you", 66, 0, 33);
+        action1 = new Action("Coin Flip", "The AI either you heals to full HP or dies", 10000, 0, 50);
+        return player = new Player("Stable Diffusion", "Stable Diffusion", 100, attack0, attack1, attack2, action0, action1);
     }
     private static Player generic() {
-        player = new Player("GenericPlayer", "GenericPlayerDescription", 100, attackG, attackG, attackG, actionG, actionG);
-        return player;
+        return player = new Player("GenericPlayer", "GenericPlayerDescription", 100, attackG, attackG, attackG, actionG, actionG);
     }
 
     public enum PlayerId {

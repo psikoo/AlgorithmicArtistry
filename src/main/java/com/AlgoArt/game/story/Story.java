@@ -1,10 +1,10 @@
 package com.AlgoArt.game.story;
 
 public class Story {
-    public Story(int storyLevel) {
-        if(storyLevel == StoryLevel.fractal.ordinal()) fractal();
-        else if(storyLevel == StoryLevel.geom.ordinal()) geom();
-        else if(storyLevel == StoryLevel.spider.ordinal()) spider();
+    public Story(StoryLevel storyLevel) {
+        if(storyLevel == StoryLevel.fractal) fractal();
+        else if(storyLevel == StoryLevel.geom) geom();
+        else if(storyLevel == StoryLevel.spider) spider();
     } 
 
     private void fractal() {

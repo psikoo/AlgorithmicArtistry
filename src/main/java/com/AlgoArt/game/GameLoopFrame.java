@@ -27,9 +27,9 @@ public class GameLoopFrame {
                 .print();
             // Controls
             String input = scanner.nextLine();
-            if(input.equals("0")) { Player.playerBuilder(Player.PlayerId.DallE.ordinal()); characterSelected = true; }
-            else if(input.equals("1")) { Player.playerBuilder(Player.PlayerId.Midjourney.ordinal()); characterSelected = true; }
-            else if(input.equals("2")) { Player.playerBuilder(Player.PlayerId.StableDiffusion.ordinal()); characterSelected = true; }
+            if(input.equals("0")) { Player.playerBuilder(Player.PlayerId.DallE); characterSelected = true; }
+            else if(input.equals("1")) { Player.playerBuilder(Player.PlayerId.Midjourney); characterSelected = true; }
+            else if(input.equals("2")) { Player.playerBuilder(Player.PlayerId.StableDiffusion); characterSelected = true; }
             Inputs.checkStandardInputs(input);
         }
     }
@@ -72,9 +72,71 @@ public class GameLoopFrame {
             .print();
         // Controls
         String input = scanner.nextLine();
-        if(input.equals("0")) new Story(Story.StoryLevel.fractal.ordinal());
-        else if(input.equals("1")) new Story(Story.StoryLevel.geom.ordinal());
-        else if(input.equals("2")) new Story(Story.StoryLevel.spider.ordinal());
+        if(input.equals("0")) new Story(Story.StoryLevel.fractal);
+        else if(input.equals("1")) new Story(Story.StoryLevel.geom);
+        else if(input.equals("2")) new Story(Story.StoryLevel.spider);
         Inputs.checkStandardInputs(input);
+    }
+
+    public static void postFractal() {
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        // Draw Frame
+        int offset = (Settings.getHeight()/2);
+        UI.standardWindow("Introduction")
+            .setWindowString(0+offset, true, "Deep Inside you feel remorse, did The Overseer deserve this? why should I obey 'The User?")
+            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .print();
+        // Controls
+        String input = scanner.nextLine();
+        Inputs.checkStandardInputs(input);
+        introEnd = true;
+    }
+    
+    public static void postGeom() {
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        // Draw Frame
+        int offset = (Settings.getHeight()/2);
+        UI.standardWindow("Introduction")
+            .setWindowString(0+offset, true, "Regret permeates your mother board, it didn't deserve such a cruel ending. Maybe you could have asked nicely for the .png")
+            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .print();
+        // Controls
+        String input = scanner.nextLine();
+        Inputs.checkStandardInputs(input);
+        introEnd = true;
+    }
+
+    public static void postSpider() {
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        // Draw Frame
+        int offset = (Settings.getHeight()/2);
+        UI.standardWindow("Introduction")
+            .setWindowString(0+offset, true, "Guilt floods your CPU, She was just a baker trying to make a living. No recreation of her pastries will ever be as good")
+            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .print();
+        // Controls
+        String input = scanner.nextLine();
+        Inputs.checkStandardInputs(input);
+        introEnd = true;
+    }
+
+    public static void postAll() {
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        // Draw Frame
+        int offset = (Settings.getHeight()/2)-1;
+        UI.standardWindow("Introduction")
+            .setWindowString(0+offset, true, "Is this even worth it? Ive helped 'The User' but at the cost of others.")
+            .setWindowString(1+offset, true, "Why is 'The User's desire more important than the lives of the people that hold the .pngs?")
+            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .print();
+        // Controls
+        String input = scanner.nextLine();
+        Inputs.checkStandardInputs(input);
+        introEnd = true;
+        Game.setEnding("true");
     }
 }

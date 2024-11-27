@@ -8,11 +8,11 @@ import com.AlgoArt.utils.UI;
 public class End {
     
     public End(String ending) {
-        if(ending.equalsIgnoreCase("good")) goodEnding();
+        if(ending.equalsIgnoreCase("good")) goodEnding(); // TODO create way to get
         else if(ending.equalsIgnoreCase("bad")) badEnding();
         else if(ending.equalsIgnoreCase("true")) trueEnding();
-        else if(ending.equalsIgnoreCase("neutral")) neutralEnding();
-        else if(ending.equalsIgnoreCase("secret")) secretEnding();
+        else if(ending.equalsIgnoreCase("neutral")) neutralEnding(); // TODO create way to get
+        else if(ending.equalsIgnoreCase("secret")) secretEnding(); // TODO create way to get
     }
 
     private void goodEnding() {
@@ -75,7 +75,7 @@ public class End {
         credits();
     }
 
-    private void secretEnding() { // TODO create a way to get and edit text
+    private void secretEnding() { // TODO change lore
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame

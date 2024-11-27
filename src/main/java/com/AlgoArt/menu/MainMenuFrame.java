@@ -47,7 +47,7 @@ public class MainMenuFrame {
         menuValidAction = false;
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
-        while (!menuValidAction) { // TODO never set to true?? infinite loop game may not end + check others there are other infinite loops, or maybe the while loop isn't needed remove if true
+        while (!menuValidAction) {
             // Draw Frame
             int offset = (Settings.getHeight()/2)-1;
             UI.standardWindow("AlgoArt")
