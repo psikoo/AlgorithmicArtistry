@@ -2,17 +2,23 @@ package com.AlgoArt.game;
 
 import java.util.Scanner;
 
+import com.AlgoArt.game.characters.player.Player;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
 
 public class End {
     
     public End(String ending) {
-        if(ending.equalsIgnoreCase("good")) goodEnding(); // TODO create way to get
+        if(ending.equalsIgnoreCase("good")) goodEnding();
         else if(ending.equalsIgnoreCase("bad")) badEnding();
         else if(ending.equalsIgnoreCase("true")) trueEnding();
-        else if(ending.equalsIgnoreCase("neutral")) neutralEnding(); // TODO create way to get
-        else if(ending.equalsIgnoreCase("secret")) secretEnding(); // TODO create way to get
+        else if(ending.equalsIgnoreCase("neutral")) neutralEnding();
+        else if(ending.equalsIgnoreCase("secret")) secretEnding();
+    }
+
+    public static String checkGoodOrNeutral() {
+        if(!Player.player.getCompleteFractal() && !Player.player.getCompleteGeom() && !Player.player.getCompleteSpider()) return "good";
+        else return "neutral";
     }
 
     private void goodEnding() {
