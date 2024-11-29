@@ -81,15 +81,14 @@ public class End {
         credits();
     }
 
-    private void secretEnding() { // TODO change lore
+    private void secretEnding() {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-2;
+        int offset = (Settings.getHeight()/2)-1;
         UI.standardWindow("Secret Ending", "empty")
-            .setWindowString(0+offset, true, "Secret Ending!")
-            .setWindowString(2+offset, true, "TEXT")
-            .setWindowString(3+offset, true, "LongTEXT") 
+            .setWindowString(0+offset, true, "There really was a cake...")
+            .setWindowString(2+offset, true, "                  - GLaDOS")
             .print();
         // Controls
         scanner.nextLine();

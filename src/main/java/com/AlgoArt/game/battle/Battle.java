@@ -17,7 +17,7 @@ public class Battle {
     private static int turn;
     private static boolean battleEnd;
 
-    public Battle(Enemy enemyB) { // TODO optimize reprints (prints several times per frame)
+    public Battle(Enemy enemyB) {
         player = Player.player;
         enemy = enemyB;
         battleEnd = false;

@@ -76,7 +76,6 @@ public class GameLoopFrame {
         else if(input.equals("1")) new Story(Story.StoryLevel.geom);
         else if(input.equals("2")) new Story(Story.StoryLevel.spider);
         else if(input.equalsIgnoreCase("no")) Game.setEnding(End.checkGoodOrNeutral());
-        else if(input.equalsIgnoreCase("secret")) ; // TODO change secret code
         Inputs.checkStandardInputs(input);
     }
 
