@@ -96,7 +96,22 @@ public class End {
     }
 
     private void credits() {
-        // TODO add credits
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
+        // Draw Frame
+        int offset = (Settings.getHeight()/2)-4;
+        UI.standardWindow("Credits", "empty")
+            .setWindowString(0+offset, true, "Art")
+            .setWindowString(1+offset, true, "Algoart.org (Algorithm based art)  ")
+            .setWindowString(3+offset, true, "Info")
+            .setWindowString(4+offset, true, "fractalblockworld.wiki.gg (Level 0)")
+            .setWindowString(5+offset, true, "geometry-dash.fandom.com (Level 1) ")
+            .setWindowString(6+offset, true, "undertale.fandom.com (Level 2)     ")
+            .setWindowString(7+offset, true, "Thanks for playing")
+            .setWindowString(Settings.getHeight()-3, 5, "Press enter to end the program...")
+            .print();
+        // Controls
+        scanner.nextLine();
         System.exit(0);
     }
 }
