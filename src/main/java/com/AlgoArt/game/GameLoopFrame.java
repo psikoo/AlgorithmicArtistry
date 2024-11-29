@@ -75,7 +75,7 @@ public class GameLoopFrame {
         if(input.equals("0")) new Story(Story.StoryLevel.fractal);
         else if(input.equals("1")) new Story(Story.StoryLevel.geom);
         else if(input.equals("2")) new Story(Story.StoryLevel.spider);
-        else if(input.equalsIgnoreCase("no")) Game.setEnding(End.checkGoodOrNeutral());
+        else if(input.equalsIgnoreCase("no")) Game.setEnding(End.checkGoodOrNeutral()); // TODO talk about it in lore drops, there is no reference to it
         else if(input.equalsIgnoreCase("cake")) Game.setEnding("secret");
         Inputs.checkStandardInputs(input);
     }
