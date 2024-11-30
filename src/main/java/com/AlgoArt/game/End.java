@@ -10,7 +10,7 @@ public class End {
     
     public End(String ending) {
         if(ending.equalsIgnoreCase("good")) goodEnding();
-        else if(ending.equalsIgnoreCase("bad")) badEnding();
+        else if(ending.equalsIgnoreCase("bad")) badEnding(); // TODO change to enum
         else if(ending.equalsIgnoreCase("true")) trueEnding();
         else if(ending.equalsIgnoreCase("neutral")) neutralEnding();
         else if(ending.equalsIgnoreCase("secret")) secretEnding();

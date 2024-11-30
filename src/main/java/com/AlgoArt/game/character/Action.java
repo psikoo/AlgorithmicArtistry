@@ -19,7 +19,7 @@ public class Action {
         this.HPChange = HPChange;
         this.multipleChance = multipleChance;
         this.backFire = backFire;
-    }
+    } // TODO check to create abstracr classes for action attack (maybe rename action to heal)
 
     public static Action genericActionBuilder() {
         return new Action("GenericAction", "GenericActionDesc", 0, 0, 0);

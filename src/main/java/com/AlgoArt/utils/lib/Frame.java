@@ -130,7 +130,7 @@ public class Frame {
 
     // Border Builder
     // https://en.wikipedia.org/wiki/Box-drawing_characters
-    public static char[] borderBuilder(int mode) {
+    public static char[] borderBuilder(int mode) { // TODO use enums and update cliFrame on github + add self center with array [[y+offset, x, text],[y+offset, x, text]]
         char[] border = new char[9];
         if(mode == 0) {
             border[0] = '─'; border[1] = '│'; border[2] = '┌';
