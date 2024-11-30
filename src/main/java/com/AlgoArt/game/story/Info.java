@@ -1,8 +1,9 @@
-package com.AlgoArt.game.info;
+package com.AlgoArt.game.story;
 
 import java.util.Scanner;
 
-import com.AlgoArt.game.characters.enemy.Enemy;
+import com.AlgoArt.game.character.Enemy;
+import com.AlgoArt.utils.Image;
 import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.UI;
 

@@ -1,4 +1,4 @@
-package com.AlgoArt.game.characters;
+package com.AlgoArt.game.character;
 
 public abstract class Character {
     private String name;

@@ -2,7 +2,7 @@ package com.AlgoArt.game;
 
 import java.util.Scanner;
 
-import com.AlgoArt.game.characters.player.Player;
+import com.AlgoArt.game.character.Player;
 import com.AlgoArt.game.story.Story;
 import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;

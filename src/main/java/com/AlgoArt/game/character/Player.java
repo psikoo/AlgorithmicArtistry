@@ -1,8 +1,4 @@
-package com.AlgoArt.game.characters.player;
-
-import com.AlgoArt.game.characters.Action;
-import com.AlgoArt.game.characters.Attack;
-import com.AlgoArt.game.characters.Character;
+package com.AlgoArt.game.character;
 
 public class Player extends Character {
     public static Player player;

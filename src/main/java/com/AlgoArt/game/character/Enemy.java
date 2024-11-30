@@ -1,8 +1,4 @@
-package com.AlgoArt.game.characters.enemy;
-
-import com.AlgoArt.game.characters.Action;
-import com.AlgoArt.game.characters.Attack;
-import com.AlgoArt.game.characters.Character;
+package com.AlgoArt.game.character;
 
 public class Enemy extends Character {
     private static Action genericAction = Action.genericActionBuilder();  

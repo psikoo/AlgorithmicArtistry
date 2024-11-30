@@ -3,8 +3,7 @@ package com.AlgoArt.game.story;
 import java.util.Scanner;
 
 import com.AlgoArt.game.battle.Battle;
-import com.AlgoArt.game.characters.enemy.Enemy;
-import com.AlgoArt.game.info.Info;
+import com.AlgoArt.game.character.Enemy;
 import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;

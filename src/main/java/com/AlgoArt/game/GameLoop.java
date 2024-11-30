@@ -1,6 +1,6 @@
 package com.AlgoArt.game;
 
-import com.AlgoArt.game.characters.player.Player;
+import com.AlgoArt.game.character.Player;
 
 public class GameLoop {
     private boolean fractalSeen = false;

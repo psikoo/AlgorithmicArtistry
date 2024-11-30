@@ -1,4 +1,4 @@
-package com.AlgoArt.game.info;
+package com.AlgoArt.utils;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;

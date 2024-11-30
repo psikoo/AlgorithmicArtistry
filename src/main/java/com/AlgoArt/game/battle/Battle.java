@@ -3,11 +3,11 @@ package com.AlgoArt.game.battle;
 import java.util.Random;
 import java.util.Scanner;
 
-import com.AlgoArt.game.characters.Action;
-import com.AlgoArt.game.characters.Attack;
-import com.AlgoArt.game.characters.Character;
-import com.AlgoArt.game.characters.enemy.Enemy;
-import com.AlgoArt.game.characters.player.Player;
+import com.AlgoArt.game.character.Action;
+import com.AlgoArt.game.character.Attack;
+import com.AlgoArt.game.character.Character;
+import com.AlgoArt.game.character.Enemy;
+import com.AlgoArt.game.character.Player;
 import com.AlgoArt.utils.Inputs;
 
 public class Battle {

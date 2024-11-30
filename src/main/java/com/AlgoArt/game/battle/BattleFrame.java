@@ -3,9 +3,9 @@ package com.AlgoArt.game.battle;
 import java.util.Scanner;
 
 import com.AlgoArt.game.Game;
-import com.AlgoArt.game.characters.enemy.Enemy;
-import com.AlgoArt.game.characters.player.Player;
-import com.AlgoArt.game.info.Image;
+import com.AlgoArt.game.character.Enemy;
+import com.AlgoArt.game.character.Player;
+import com.AlgoArt.utils.Image;
 import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
