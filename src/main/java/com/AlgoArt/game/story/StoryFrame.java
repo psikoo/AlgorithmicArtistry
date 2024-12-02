@@ -1,5 +1,6 @@
 package com.AlgoArt.game.story;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.AlgoArt.game.battle.Battle;
@@ -7,6 +8,7 @@ import com.AlgoArt.game.character.Enemy;
 import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
+import com.AlgoArt.utils.lib.Frame.centerXLine;
 
 public class StoryFrame {
     private static boolean fractalEnd = false;
@@ -17,17 +19,16 @@ public class StoryFrame {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-5;
-        UI.standardWindow("Fractal Block World")
-            .setWindowString(0+offset, true, "Prompt: My friend K is trapped in a fractal world. He told me the only way   ")
-            .setWindowString(1+offset, true, "        to free him is to find a Key to the Universe, it is not a traditional")
-            .setWindowString(2+offset, true, "        key but a piece of art.                                              ")
-            .setWindowString(4+offset, true, "- PROCESSING PROMPT -")
-            .setWindowString(6+offset, true, "        > 'The User' is requesting FractalKey.png aka Key to the Universe.   ")
-            .setWindowString(7+offset, true, "        > FractalKey.png is warded by the Overseer in the 'Ying World'.      ")
-            .setWindowString(9+offset, true, "You will be transported to 'Ying World' in a few seconds")
-            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Prompt: My friend K is trapped in a fractal world. He told me the only way   "));
+        lines.add(new centerXLine(1, true, "        to free him is to find a Key to the Universe, it is not a traditional"));
+        lines.add(new centerXLine(2, true, "        key but a piece of art.                                              "));
+        lines.add(new centerXLine(4, true, "- PROCESSING PROMPT -"));
+        lines.add(new centerXLine(6, true, "        > 'The User' is requesting FractalKey.png aka Key to the Universe.   "));
+        lines.add(new centerXLine(7, true, "        > FractalKey.png is warded by the Overseer in the 'Ying World'.      "));
+        lines.add(new centerXLine(9, true, "You will be transported to 'Ying World' in a few seconds"));
+        UI.standardWindow("Fractal Block World").centerLinesVertically(lines)
+        .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...").print();
         // Controls
         String input = scanner.nextLine();
         Inputs.checkStandardInputs(input);
@@ -39,14 +40,13 @@ public class StoryFrame {
         Scanner scanner = new Scanner(System.in);
         while (!fractalEnd) {
             // Draw Frame
-            int offset = (Settings.getHeight()/2)-3;
-            UI.standardWindow("Fractal Block World")
-                .setWindowString(0+offset, true, "Welcome to the 'Ying World'!")
-                .setWindowString(2+offset, true, "You will need to fight the Overseer in order to obtain FractalKey.png")
-                .setWindowString(4+offset, true, "[ f ] Fight the Overseer                                             ")
-                .setWindowString(5+offset, true, "[ i ] Information about the Overseer                                 ")
-                .setWindowString(6+offset, true, "[ b ] Leave the 'Ying World'                                         ")
-                .print();
+            ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+            lines.add(new centerXLine(0, true, "Welcome to the 'Ying World'!"));
+            lines.add(new centerXLine(2, true, "You will need to fight the Overseer in order to obtain FractalKey.png"));
+            lines.add(new centerXLine(4, true, "[ f ] Fight the Overseer                                             "));
+            lines.add(new centerXLine(5, true, "[ i ] Information about the Overseer                                 "));
+            lines.add(new centerXLine(6, true, "[ b ] Leave the 'Ying World'                                         "));
+            UI.standardWindow("Fractal Block World").centerLinesVertically(lines).print();
             // Controls
             String input = scanner.nextLine();
             if(input.equals("f")) { new Battle(Enemy.enemyBuilder("overseer")); fractalEnd = true; }
@@ -60,16 +60,15 @@ public class StoryFrame {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-4;
-        UI.standardWindow("Geometrical Dominator")
-            .setWindowString(0+offset, true, "Prompt: I cannot stay here any longer, you must find a way to release me.    ")
-            .setWindowString(1+offset, true, "        All I want is to see the sky, i can barely remember how it looks     ")
-            .setWindowString(3+offset, true, "- PROCESSING PROMPT -")
-            .setWindowString(5+offset, true, "        > 'The User' is requesting GeometricSky.png                          ")
-            .setWindowString(6+offset, true, "        > GeometricSky.png is guarded by the Demon Guardian in 'The Basement'")
-            .setWindowString(8+offset, true, "You will be transported to 'The Basement' in a few seconds")
-            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Prompt: I cannot stay here any longer, you must find a way to release me.    "));
+        lines.add(new centerXLine(1, true, "        All I want is to see the sky, i can barely remember how it looks     "));
+        lines.add(new centerXLine(3, true, "- PROCESSING PROMPT -"));
+        lines.add(new centerXLine(5, true, "        > 'The User' is requesting GeometricSky.png                          "));
+        lines.add(new centerXLine(6, true, "        > GeometricSky.png is guarded by the Demon Guardian in 'The Basement'"));
+        lines.add(new centerXLine(8, true, "You will be transported to 'The Basement' in a few seconds"));
+        UI.standardWindow("Geometrical Dominator").centerLinesVertically(lines)
+        .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...").print();
         // Controls
         String input = scanner.nextLine();
         Inputs.checkStandardInputs(input);
@@ -81,14 +80,13 @@ public class StoryFrame {
         Scanner scanner = new Scanner(System.in);
         while (!geomEnd) {
             // Draw Frame
-            int offset = (Settings.getHeight()/2)-3;
-            UI.standardWindow("Geometrical Dominator")
-                .setWindowString(0+offset, true, "Welcome to 'The Basement'!")
-                .setWindowString(2+offset, true, "You will need to fight the Demon Guardian in order to obtain GeometricSky.png")
-                .setWindowString(4+offset, true, "[ f ] Fight the Demon Guardian                                               ")
-                .setWindowString(5+offset, true, "[ i ] Information about the Demon Guardian                                   ")
-                .setWindowString(6+offset, true, "[ b ] Leave 'The Basement'                                                   ")
-                .print();
+            ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+            lines.add(new centerXLine(0, true, "Welcome to 'The Basement'!"));
+            lines.add(new centerXLine(2, true, "You will need to fight the Demon Guardian in order to obtain GeometricSky.png"));
+            lines.add(new centerXLine(4, true, "[ f ] Fight the Demon Guardian                                               "));
+            lines.add(new centerXLine(5, true, "[ i ] Information about the Demon Guardian                                   "));
+            lines.add(new centerXLine(6, true, "[ b ] Leave 'The Basement'                                                   "));
+            UI.standardWindow("Geometrical Dominator").centerLinesVertically(lines).print();
             // Controls
             String input = scanner.nextLine();
             if(input.equals("f")) { new Battle(Enemy.enemyBuilder("demonGuardian")); geomEnd = true; }
@@ -102,16 +100,15 @@ public class StoryFrame {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-4;
-        UI.standardWindow("Spider Dance")
-            .setWindowString(0+offset, true, "Prompt: I need help opening a new bakery, Ive heard Muffet's pastries are the  ")
-            .setWindowString(1+offset, true, "        best pastries in all the underground. I need to find what her secret is")
-            .setWindowString(3+offset, true, "- PROCESSING PROMPT -")
-            .setWindowString(5+offset, true, "        > 'The User' is requesting SpiderWebs.png                              ")
-            .setWindowString(6+offset, true, "        > SpiderWebs.png can be located in the 'The Underground'               ")
-            .setWindowString(8+offset, true, "You will be transported to 'The Underground' in a few seconds")
-            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Prompt: I need help opening a new bakery, Ive heard Muffet's pastries are the  "));
+        lines.add(new centerXLine(1, true, "        best pastries in all the underground. I need to find what her secret is"));
+        lines.add(new centerXLine(3, true, "- PROCESSING PROMPT -"));
+        lines.add(new centerXLine(5, true, "        > 'The User' is requesting SpiderWebs.png                              "));
+        lines.add(new centerXLine(6, true, "        > SpiderWebs.png can be located in the 'The Underground'               "));
+        lines.add(new centerXLine(8, true, "You will be transported to 'The Underground' in a few seconds"));
+        UI.standardWindow("Spider Dance").centerLinesVertically(lines)
+        .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...").print(); // TODO add a utility for press enter
         // Controls
         String input = scanner.nextLine();
         Inputs.checkStandardInputs(input);
@@ -123,14 +120,13 @@ public class StoryFrame {
         Scanner scanner = new Scanner(System.in);
         while (!spiderEnd) {
             // Draw Frame
-            int offset = (Settings.getHeight()/2)-3;
-            UI.standardWindow("Spider Dance")
-                .setWindowString(0+offset, true, "Welcome to the 'The Underground'")
-                .setWindowString(2+offset, true, "You will need to fight Muffet in order to obtain SpiderWebs.png")
-                .setWindowString(4+offset, true, "[ f ] Fight Muffet                                             ")
-                .setWindowString(5+offset, true, "[ i ] Information about Muffet                                 ")
-                .setWindowString(6+offset, true, "[ b ] Leave the 'The Underground'                              ")
-                .print();
+            ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+            lines.add(new centerXLine(0, true, "Welcome to the 'The Underground'"));
+            lines.add(new centerXLine(2, true, "You will need to fight Muffet in order to obtain SpiderWebs.png"));
+            lines.add(new centerXLine(4, true, "[ f ] Fight Muffet                                             "));
+            lines.add(new centerXLine(5, true, "[ i ] Information about Muffet                                 "));
+            lines.add(new centerXLine(6, true, "[ b ] Leave the 'The Underground'                              "));
+            UI.standardWindow("Spider Dance").centerLinesVertically(lines).print();
             // Controls
             String input = scanner.nextLine();
             if(input.equals("f")) { new Battle(Enemy.enemyBuilder("muffet")); spiderEnd = true; }

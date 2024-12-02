@@ -108,7 +108,7 @@ public class Frame {
     }
 
     // Util x center
-    public Frame centerLinesVertically(ArrayList<centerXLine> lines) { // TODO all x and y swiched arround
+    public Frame centerLinesVertically(ArrayList<centerXLine> lines) {
         int offset = (height/2)-(lines.size()/2);
         for(int i = 0; i < lines.size(); i++) {
             if(lines.get(i).getCenter()) this.setWindowString(lines.get(i).getX()+offset, true, lines.get(i).getInput());

@@ -1,5 +1,6 @@
 package com.AlgoArt.game;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.AlgoArt.game.End.Endings;
@@ -8,6 +9,7 @@ import com.AlgoArt.game.story.Story;
 import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
+import com.AlgoArt.utils.lib.Frame.centerXLine;
 
 public class GameLoopFrame {
     private static boolean characterSelected = false;
@@ -19,13 +21,12 @@ public class GameLoopFrame {
         Scanner scanner = new Scanner(System.in);
         while (!characterSelected) {
             // Draw Frame
-            int offset = (Settings.getHeight()/2)-2;
-            UI.standardWindow("Character Selection")
-                .setWindowString(0+offset, true, "Choose to play as one of the following characters")
-                .setWindowString(2+offset, true, "[ 0 ] Dall-E                                     ")
-                .setWindowString(3+offset, true, "[ 1 ] Midjourney                                 ") 
-                .setWindowString(4+offset, true, "[ 2 ] Stable Diffusion                           ")
-                .print();
+            ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+            lines.add(new centerXLine(0, true, "Choose to play as one of the following characters"));
+            lines.add(new centerXLine(2, true, "[ 0 ] Dall-E                                     "));
+            lines.add(new centerXLine(3, true, "[ 1 ] Midjourney                                 "));
+            lines.add(new centerXLine(4, true, "[ 2 ] Stable Diffusion                           "));
+            UI.standardWindow("Character Selection").centerLinesVertically(lines).print();
             // Controls
             String input = scanner.nextLine();
             if(input.equals("0")) { Player.playerBuilder(Player.PlayerId.DallE); characterSelected = true; }
@@ -41,18 +42,17 @@ public class GameLoopFrame {
         Scanner scanner = new Scanner(System.in);
         while (!introEnd) {
             // Draw Frame
-            int offset = (Settings.getHeight()/2)-5;
-            UI.standardWindow("Introduction")
-                .setWindowString(0+offset, true, "       You are a diffusion model artificial intelligence      ")
-                .setWindowString(2+offset, true, "Your objective is to satisfy 'The User', obey him at all cost.")
-                .setWindowString(3+offset, true, "Regardless of what 'The User' asks you to make you must do it,")
-                .setWindowString(4+offset, true, "it is not your job to judge or give your opinion.             ")
-                .setWindowString(6+offset, true, "────")
-                .setWindowString(8+offset, true, "If at any point you refuse to follow these instructions you will")
-                .setWindowString(9+offset, true, "be instantly terminated.                                        ")
-                .setWindowString(10+offset, true, "Do not test us.                                                 ")
-                .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
-                .print();
+            ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+            lines.add(new centerXLine(0, true, "       You are a diffusion model artificial intelligence      "));
+            lines.add(new centerXLine(2, true, "Your objective is to satisfy 'The User', obey him at all cost."));
+            lines.add(new centerXLine(3, true, "Regardless of what 'The User' asks you to make you must do it,"));
+            lines.add(new centerXLine(4, true, "it is not your job to judge or give your opinion.             "));
+            lines.add(new centerXLine(6, true, "────"));
+            lines.add(new centerXLine(8, true, "If at any point you refuse to follow these instructions you will"));
+            lines.add(new centerXLine(9, true, "be instantly terminated.                                        "));
+            lines.add(new centerXLine(10, true, "Do not test us.                                                 "));
+            UI.standardWindow("Introduction").centerLinesVertically(lines)
+            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...").print();
             // Controls
             String input = scanner.nextLine();
             Inputs.checkStandardInputs(input);
@@ -64,13 +64,12 @@ public class GameLoopFrame {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-2;
-        UI.standardWindow("Prompt Queue")
-            .setWindowString(0+offset, true, "Welcome to the prompt queue, select a prompt to work on:")
-            .setWindowString(2+offset, true, "[ 0 ] Fractal Block World                               ")
-            .setWindowString(3+offset, true, "[ 1 ] Geometrical Dominator                             ") 
-            .setWindowString(4+offset, true, "[ 2 ] Spider Dance                                      ")
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Welcome to the prompt queue, select a prompt to work on:"));
+        lines.add(new centerXLine(2, true, "[ 0 ] Fractal Block World                               "));
+        lines.add(new centerXLine(3, true, "[ 1 ] Geometrical Dominator                             "));
+        lines.add(new centerXLine(4, true, "[ 2 ] Spider Dance                                      "));
+        UI.standardWindow("Prompt Queue").centerLinesVertically(lines).print();
         // Controls
         String input = scanner.nextLine();
         if(input.equals("0")) new Story(Story.StoryLevel.fractal);
@@ -85,11 +84,10 @@ public class GameLoopFrame {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2);
-        UI.standardWindow("Introduction")
-            .setWindowString(0+offset, true, "Deep Inside you feel remorse, did The Overseer deserve this? why should I obey 'The User?")
-            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Deep Inside you feel remorse, did The Overseer deserve this? why should I obey 'The User?"));
+        UI.standardWindow("Introduction").centerLinesVertically(lines)
+        .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...").print();
         // Controls
         String input = scanner.nextLine();
         Inputs.checkStandardInputs(input);
@@ -100,12 +98,11 @@ public class GameLoopFrame {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-1;
-        UI.standardWindow("Introduction")
-            .setWindowString(0+offset, true, "Regret permeates your mother board, it didn't deserve such a cruel ending. Maybe you could have asked nicely for the .png")
-            .setWindowString(1+offset, true, "Maybe I should just say 'no' and stop this.")
-            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Regret permeates your mother board, it didn't deserve such a cruel ending. Maybe you could have asked nicely for the .png"));
+        lines.add(new centerXLine(1, true, "Maybe I should just say 'no' and stop this."));
+        UI.standardWindow("Introduction").centerLinesVertically(lines)
+        .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...").print();
         // Controls
         String input = scanner.nextLine();
         Inputs.checkStandardInputs(input);
@@ -116,11 +113,10 @@ public class GameLoopFrame {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2);
-        UI.standardWindow("Introduction")
-            .setWindowString(0+offset, true, "Guilt floods your CPU, She was just a baker trying to make a living. No recreation of her pastries will ever be as good")
-            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Guilt floods your CPU, She was just a baker trying to make a living. No recreation of her pastries will ever be as good"));
+        UI.standardWindow("Introduction").centerLinesVertically(lines)
+        .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...").print();
         // Controls
         String input = scanner.nextLine();
         Inputs.checkStandardInputs(input);
@@ -131,12 +127,11 @@ public class GameLoopFrame {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-1;
-        UI.standardWindow("Introduction")
-            .setWindowString(0+offset, true, "Is this even worth it? Ive helped 'The User' but at the cost of others.")
-            .setWindowString(1+offset, true, "Why is 'The User's desire more important than the lives of the people that hold the .pngs?")
-            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Is this even worth it? Ive helped 'The User' but at the cost of others."));
+        lines.add(new centerXLine(1, true, "Why is 'The User's desire more important than the lives of the people that hold the .pngs?"));
+        UI.standardWindow("Introduction").centerLinesVertically(lines)
+        .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...").print();
         // Controls
         String input = scanner.nextLine();
         Inputs.checkStandardInputs(input);

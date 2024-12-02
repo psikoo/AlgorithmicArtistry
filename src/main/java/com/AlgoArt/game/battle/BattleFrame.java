@@ -1,9 +1,10 @@
 package com.AlgoArt.game.battle;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.AlgoArt.game.Game;
 import com.AlgoArt.game.End.Endings;
+import com.AlgoArt.game.Game;
 import com.AlgoArt.game.character.Enemy;
 import com.AlgoArt.game.character.Player;
 import com.AlgoArt.utils.Image;
@@ -11,6 +12,7 @@ import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
 import com.AlgoArt.utils.lib.Frame;
+import com.AlgoArt.utils.lib.Frame.centerXLine;
 
 public class BattleFrame {
     private static Frame frame;
@@ -63,12 +65,11 @@ public class BattleFrame {
         Scanner scanner = new Scanner(System.in);
         while (!battleEndScreenEnd) {
             // Draw Frame
-            int offset = (Settings.getHeight()/2)-2;
-            UI.standardWindow("Defeat")
-                .setWindowString(0+offset, true, "You were defeated by "+enemy.getName()+"!")
-                .setWindowString(2+offset, true, "You feel the power slowly draining away from your components")
-                .setWindowString(4+offset, true, "[ e ] Go to end screen                                      ")
-                .print();
+            ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+            lines.add(new centerXLine(0, true, "You were defeated by "+enemy.getName()+"!"));
+            lines.add(new centerXLine(2, true, "You feel the power slowly draining away from your components"));
+            lines.add(new centerXLine(4, true, "[ e ] Go to end screen                                      "));
+            UI.standardWindow("Defeat").centerLinesVertically(lines).print();
             // Controls
             String input = scanner.nextLine();
             if(input.equals("e")) battleEndScreenEnd = true;
@@ -87,13 +88,12 @@ public class BattleFrame {
         Scanner scanner = new Scanner(System.in);
         while (!battleEndScreenEnd) {
             // Draw Frame
-            int offset = (Settings.getHeight()/2)-3;
-            UI.standardWindow("Victory")
-                .setWindowString(0+offset, true, "You were defeated by "+enemy.getName()+"!")
-                .setWindowString(2+offset, true,       "Behind "+enemy.getName()+" you found a .png")
-                .setWindowString(4+offset, true, "[ p ] Open .png                            ")
-                .setWindowString(5+offset, true, "[ e ] Exit to prompt queue                 ")
-                .print();
+            ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+            lines.add(new centerXLine(0, true, "You were defeated by "+enemy.getName()+"!"));
+            lines.add(new centerXLine(2, true, "Behind "+enemy.getName()+" you found a .png"));
+            lines.add(new centerXLine(4, true, "[ p ] Open .png                            "));
+            lines.add(new centerXLine(5, true, "[ e ] Exit to prompt queue                 "));
+            UI.standardWindow("Victory").centerLinesVertically(lines).print();
             // Controls
             String input = scanner.nextLine();
             if(input.equals("e")) battleEndScreenEnd = true;

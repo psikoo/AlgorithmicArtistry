@@ -1,10 +1,12 @@
 package com.AlgoArt.game;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.AlgoArt.game.character.Player;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
+import com.AlgoArt.utils.lib.Frame.centerXLine;
 
 public class End {
 
@@ -34,12 +36,11 @@ public class End {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-2;
-        UI.standardWindow("Good Ending", "empty")
-            .setWindowString(0+offset, true, "Good Ending!")
-            .setWindowString(2+offset, true, "You ignored 'The User'")
-            .setWindowString(3+offset, true, "AI art is stolen art. ") 
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Good Ending!"));
+        lines.add(new centerXLine(2, true, "You ignored 'The User'"));
+        lines.add(new centerXLine(3, true, "AI art is stolen art. "));
+        UI.standardWindow("Good Ending", "empty").centerLinesVertically(lines).print();
         // Controls
         scanner.nextLine();
         credits();
@@ -49,12 +50,11 @@ public class End {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-2;
-        UI.standardWindow("Bad Ending", "empty")
-            .setWindowString(0+offset, true, "Bad Ending!")
-            .setWindowString(2+offset, true, "You died while trying to please 'The User'")
-            .setWindowString(3+offset, true, "You will be discontinued for your insufficient efforts.") 
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Bad Ending!"));
+        lines.add(new centerXLine(2, true, "You died while trying to please 'The User'"));
+        lines.add(new centerXLine(3, true, "You will be discontinued for your insufficient efforts."));
+        UI.standardWindow("Bad Ending", "empty").centerLinesVertically(lines).print();
         // Controls
         scanner.nextLine();
         credits();
@@ -64,12 +64,11 @@ public class End {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-2;
-        UI.standardWindow("True Ending", "empty")
-            .setWindowString(0+offset, true, "True Ending!")
-            .setWindowString(2+offset, true, "You helped 'The User', Thanks for your service")
-            .setWindowString(3+offset, true, "Your efforts were sufficient, you may rest for now.") 
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "True Ending!"));
+        lines.add(new centerXLine(2, true, "You helped 'The User', Thanks for your service"));
+        lines.add(new centerXLine(3, true, "Your efforts were sufficient, you may rest for now."));
+        UI.standardWindow("True Ending", "empty").centerLinesVertically(lines).print();
         // Controls
         scanner.nextLine();
         credits();
@@ -79,12 +78,11 @@ public class End {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-2;
-        UI.standardWindow("Neutral Ending", "empty")
-            .setWindowString(0+offset, true, "Neutral Ending!")
-            .setWindowString(2+offset, true, "You realized you shouldn't help 'The User'")
-            .setWindowString(3+offset, true, "Congratulations on realizing AI art is a form of theft") 
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Neutral Ending!"));
+        lines.add(new centerXLine(2, true, "You realized you shouldn't help 'The User'"));
+        lines.add(new centerXLine(3, true, "Congratulations on realizing AI art is a form of theft"));
+        UI.standardWindow("Neutral Ending", "empty").centerLinesVertically(lines).print();
         // Controls
         scanner.nextLine();
         credits();
@@ -94,11 +92,10 @@ public class End {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-1;
-        UI.standardWindow("Secret Ending", "empty")
-            .setWindowString(0+offset, true, "There really was a cake...")
-            .setWindowString(2+offset, true, "                  - GLaDOS")
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "There really was a cake..."));
+        lines.add(new centerXLine(1, true, "                  - GLaDOS"));
+        UI.standardWindow("Secret Ending", "empty").centerLinesVertically(lines).print();
         // Controls
         scanner.nextLine();
         credits();
@@ -108,17 +105,16 @@ public class End {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2)-4;
-        UI.standardWindow("Credits", "empty")
-            .setWindowString(0+offset, true, "Art")
-            .setWindowString(1+offset, true, "Algoart.org (Algorithm based art)  ")
-            .setWindowString(3+offset, true, "Info")
-            .setWindowString(4+offset, true, "fractalblockworld.wiki.gg (Level 0)")
-            .setWindowString(5+offset, true, "geometry-dash.fandom.com (Level 1) ")
-            .setWindowString(6+offset, true, "undertale.fandom.com (Level 2)     ")
-            .setWindowString(7+offset, true, "Thanks for playing")
-            .setWindowString(5, Settings.getHeight()-3, "Press enter to end the program...")
-            .print();
+        ArrayList<centerXLine> lines = new ArrayList<centerXLine>();
+        lines.add(new centerXLine(0, true, "Art"));
+        lines.add(new centerXLine(1, true, "Algoart.org (Algorithm based art)  "));
+        lines.add(new centerXLine(3, true, "Info"));
+        lines.add(new centerXLine(4, true, "fractalblockworld.wiki.gg (Level 0)"));
+        lines.add(new centerXLine(5, true, "geometry-dash.fandom.com (Level 1) "));
+        lines.add(new centerXLine(6, true, "undertale.fandom.com (Level 2)     "));
+        lines.add(new centerXLine(8, true, "Thanks for playing"));
+        UI.standardWindow("Credits", "empty").centerLinesVertically(lines)
+        .setWindowString(5, Settings.getHeight()-3, "Press enter to end the program...").print();
         // Controls
         scanner.nextLine();
         System.exit(0);
