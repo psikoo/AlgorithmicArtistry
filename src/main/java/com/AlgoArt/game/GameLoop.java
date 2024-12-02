@@ -1,5 +1,6 @@
 package com.AlgoArt.game;
 
+import com.AlgoArt.game.End.Endings;
 import com.AlgoArt.game.character.Player;
 
 public class GameLoop {
@@ -17,7 +18,7 @@ public class GameLoop {
         if(Player.player.getCompleteFractal() && !fractalSeen) { GameLoopFrame.postFractal(); fractalSeen = true; }
         if(Player.player.getCompleteGeom() && !geomSeen) { GameLoopFrame.postGeom(); geomSeen = true; }
         if(Player.player.getCompleteSpider() && !spiderSeen) { GameLoopFrame.postSpider(); spiderSeen = true; }
-        if(checkTrueEnding()) { GameLoopFrame.postAll(); Game.setEnding("true"); }
+        if(checkTrueEnding()) { GameLoopFrame.postAll(); Game.setEnding(Endings.trueEnding); }
         if(!checkTrueEnding()) GameLoopFrame.mainState();
     }
 

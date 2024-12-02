@@ -2,6 +2,7 @@ package com.AlgoArt.game;
 
 import java.util.Scanner;
 
+import com.AlgoArt.game.End.Endings;
 import com.AlgoArt.game.character.Player;
 import com.AlgoArt.game.story.Story;
 import com.AlgoArt.utils.Inputs;
@@ -50,7 +51,7 @@ public class GameLoopFrame {
                 .setWindowString(8+offset, true, "If at any point you refuse to follow these instructions you will")
                 .setWindowString(9+offset, true, "be instantly terminated.                                        ")
                 .setWindowString(10+offset, true, "Do not test us.                                                 ")
-                .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+                .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
                 .print();
             // Controls
             String input = scanner.nextLine();
@@ -75,8 +76,8 @@ public class GameLoopFrame {
         if(input.equals("0")) new Story(Story.StoryLevel.fractal);
         else if(input.equals("1")) new Story(Story.StoryLevel.geom);
         else if(input.equals("2")) new Story(Story.StoryLevel.spider);
-        else if(input.equalsIgnoreCase("no")) Game.setEnding(End.checkGoodOrNeutral()); // TODO talk about it in lore drops, there is no reference to it
-        else if(input.equalsIgnoreCase("cake")) Game.setEnding("secret");
+        else if(input.equalsIgnoreCase("no")) Game.setEnding(End.checkGoodOrNeutral());
+        else if(input.equalsIgnoreCase("cake")) Game.setEnding(Endings.secretEnding);
         Inputs.checkStandardInputs(input);
     }
 
@@ -87,7 +88,7 @@ public class GameLoopFrame {
         int offset = (Settings.getHeight()/2);
         UI.standardWindow("Introduction")
             .setWindowString(0+offset, true, "Deep Inside you feel remorse, did The Overseer deserve this? why should I obey 'The User?")
-            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
             .print();
         // Controls
         String input = scanner.nextLine();
@@ -99,10 +100,11 @@ public class GameLoopFrame {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         // Draw Frame
-        int offset = (Settings.getHeight()/2);
+        int offset = (Settings.getHeight()/2)-1;
         UI.standardWindow("Introduction")
             .setWindowString(0+offset, true, "Regret permeates your mother board, it didn't deserve such a cruel ending. Maybe you could have asked nicely for the .png")
-            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .setWindowString(1+offset, true, "Maybe I should just say 'no' and stop this.")
+            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
             .print();
         // Controls
         String input = scanner.nextLine();
@@ -117,7 +119,7 @@ public class GameLoopFrame {
         int offset = (Settings.getHeight()/2);
         UI.standardWindow("Introduction")
             .setWindowString(0+offset, true, "Guilt floods your CPU, She was just a baker trying to make a living. No recreation of her pastries will ever be as good")
-            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
             .print();
         // Controls
         String input = scanner.nextLine();
@@ -133,12 +135,12 @@ public class GameLoopFrame {
         UI.standardWindow("Introduction")
             .setWindowString(0+offset, true, "Is this even worth it? Ive helped 'The User' but at the cost of others.")
             .setWindowString(1+offset, true, "Why is 'The User's desire more important than the lives of the people that hold the .pngs?")
-            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
             .print();
         // Controls
         String input = scanner.nextLine();
         Inputs.checkStandardInputs(input);
         introEnd = true;
-        Game.setEnding("true");
+        Game.setEnding(Endings.trueEnding);
     }
 }

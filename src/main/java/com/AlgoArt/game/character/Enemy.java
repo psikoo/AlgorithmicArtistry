@@ -1,7 +1,7 @@
 package com.AlgoArt.game.character;
 
 public class Enemy extends Character {
-    private static Action genericAction = Action.genericActionBuilder();  
+    private static Heal genericAction = Heal.genericActionBuilder();  
     private String reward = "";
 
     public String getName() { return super.getName(); }
@@ -11,13 +11,13 @@ public class Enemy extends Character {
     public Attack getAttack0() { return super.getAttack0(); }
     public Attack getAttack1() { return super.getAttack1(); }
     public Attack getAttack2() { return super.getAttack2(); }
-    public Action getAction0() { return super.getAction0(); }
-    public Action getAction1() { return super.getAction1(); }
+    public Heal getAction0() { return super.getAction0(); }
+    public Heal getAction1() { return super.getAction1(); }
     public String getReward() { return this.reward; }
 
     public void setHP(int value) { super.setHP(value); }
 
-    public Enemy(String name, String description, String reward, int maxHP, Attack attack0, Attack attack1, Attack attack2, Action action0, Action action1) {
+    public Enemy(String name, String description, String reward, int maxHP, Attack attack0, Attack attack1, Attack attack2, Heal action0, Heal action1) {
         super(name, description, maxHP, attack0, attack1, attack2, action0, action1);
         this.reward = reward;
     }

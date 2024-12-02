@@ -3,6 +3,7 @@ package com.AlgoArt.game.battle;
 import java.util.Scanner;
 
 import com.AlgoArt.game.Game;
+import com.AlgoArt.game.End.Endings;
 import com.AlgoArt.game.character.Enemy;
 import com.AlgoArt.game.character.Player;
 import com.AlgoArt.utils.Image;
@@ -26,7 +27,7 @@ public class BattleFrame {
         currentLine = 0;
         frame = UI.standardWindow(enemy.getName())
             .divider(5)
-            .setWindowString(Settings.getHeight()-13, 5, "Press enter to continue...")
+            .setWindowString(5, Settings.getHeight()-13, "Press enter to continue...")
             .divider(Settings.getHeight()-12);
         updateUI();
         lines = Settings.getHeight()-6-13;
@@ -37,7 +38,7 @@ public class BattleFrame {
             currentLine = 0;
             for(int i = 0; i < lines; i++) { frame.empty(i+6); }
         }
-        frame.setWindowString(6+currentLine, 5, "> "+string);
+        frame.setWindowString(5, 6+currentLine, "> "+string);
         currentLine++;
     }
 
@@ -48,11 +49,11 @@ public class BattleFrame {
             .setWindowString(Settings.getHeight()-10, true, player.getName())
             .empty(Settings.getHeight()-9)
             .setWindowString(Settings.getHeight()-9, true, "HP "+player.getHP())
-            .setWindowString(Settings.getHeight()-7, 5, "[ 0 ] "+player.getAttack0().getName()+" - "+player.getAttack0().getDescription())
-            .setWindowString(Settings.getHeight()-6, 5, "[ 1 ] "+player.getAttack1().getName()+" - "+player.getAttack1().getDescription())
-            .setWindowString(Settings.getHeight()-5, 5, "[ 2 ] "+player.getAttack2().getName()+" - "+player.getAttack2().getDescription())
-            .setWindowString(Settings.getHeight()-4, 5, "[ 3 ] "+player.getAction0().getName()+" - "+player.getAction0().getDescription())
-            .setWindowString(Settings.getHeight()-3, 5, "[ 4 ] "+player.getAction1().getName()+" - "+player.getAction1().getDescription())
+            .setWindowString(5, Settings.getHeight()-7, "[ 0 ] "+player.getAttack0().getName()+" - "+player.getAttack0().getDescription())
+            .setWindowString(5, Settings.getHeight()-6, "[ 1 ] "+player.getAttack1().getName()+" - "+player.getAttack1().getDescription())
+            .setWindowString(5, Settings.getHeight()-5, "[ 2 ] "+player.getAttack2().getName()+" - "+player.getAttack2().getDescription())
+            .setWindowString(5, Settings.getHeight()-4, "[ 3 ] "+player.getAction0().getName()+" - "+player.getAction0().getDescription())
+            .setWindowString(5, Settings.getHeight()-3, "[ 4 ] "+player.getAction1().getName()+" - "+player.getAction1().getDescription())
             .print();
     }
 
@@ -73,7 +74,7 @@ public class BattleFrame {
             if(input.equals("e")) battleEndScreenEnd = true;
             Inputs.checkStandardInputs(input);
         }
-        Game.setEnding("bad");
+        Game.setEnding(Endings.badEnding);
     }
 
     public static void enemyLost() {

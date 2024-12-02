@@ -1,13 +1,15 @@
 package com.AlgoArt.game;
 
-public class Game {
-    private static String ending = "";
+import com.AlgoArt.game.End.Endings;
 
-    public static void setEnding(String string) { Game.ending = string; }
+public class Game {
+    private static Endings ending = Endings.noEnding;
+
+    public static void setEnding(Endings ending) { Game.ending = ending; }
 
     public Game() {
         GameLoop gameLoop = new GameLoop();
-        while (ending.equals("")) { gameLoop.gameTick(); }
+        while (ending == Endings.noEnding) { gameLoop.gameTick(); }
         new End(ending);
     }
 }

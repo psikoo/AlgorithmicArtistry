@@ -1,5 +1,6 @@
 package com.AlgoArt.menu;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.AlgoArt.game.Game;
@@ -7,6 +8,7 @@ import com.AlgoArt.utils.Inputs;
 import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
 import com.AlgoArt.utils.lib.Frame;
+import com.AlgoArt.utils.lib.Frame.centerXLine;
 
 public class MainMenuFrame {
     private static boolean menuValidAction = false;
@@ -49,11 +51,10 @@ public class MainMenuFrame {
         Scanner scanner = new Scanner(System.in);
         while (!menuValidAction) {
             // Draw Frame
-            int offset = (Settings.getHeight()/2)-1;
-            UI.standardWindow("AlgoArt")
-                .setWindowString(0+offset, true, "Welcome to AlgoArt select one of the options below")
-                .setWindowString(2+offset, true, "[ 0 ] Start new game                              ")
-                .print();
+            ArrayList<centerXLine> lines = new ArrayList<centerXLine>(); // TODO set all to new standard
+            lines.add(new centerXLine(0, true, "Welcome to AlgoArt select one of the options below"));
+            lines.add(new centerXLine(2, true, "[ 0 ] Start new game                              "));
+            UI.standardWindow("AlgoArt").centerLinesVertically(lines).print();
             // Controls
             String input = scanner.nextLine();
             if(input.equals("0")) new Game();

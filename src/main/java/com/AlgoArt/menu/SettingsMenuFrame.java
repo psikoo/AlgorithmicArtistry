@@ -16,8 +16,8 @@ public class SettingsMenuFrame {
         while (!closeSettings) {
             // Draw Frame
             UI.standardWindow("Settings", "back")
-                .setWindowString(2, 5, "[ Height = "+Settings.getHeight()+" ]")
-                .setWindowString(3, 5, "[ Width = "+Settings.getWidth()+" ]")
+                .setWindowString(5, 2, "[ Height = "+Settings.getHeight()+" ]")
+                .setWindowString(5, 3, "[ Width = "+Settings.getWidth()+" ]")
                 //! Add new settings here
                 .print();
             // Controls

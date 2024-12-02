@@ -26,7 +26,7 @@ public class StoryFrame {
             .setWindowString(6+offset, true, "        > 'The User' is requesting FractalKey.png aka Key to the Universe.   ")
             .setWindowString(7+offset, true, "        > FractalKey.png is warded by the Overseer in the 'Ying World'.      ")
             .setWindowString(9+offset, true, "You will be transported to 'Ying World' in a few seconds")
-            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
             .print();
         // Controls
         String input = scanner.nextLine();
@@ -68,7 +68,7 @@ public class StoryFrame {
             .setWindowString(5+offset, true, "        > 'The User' is requesting GeometricSky.png                          ")
             .setWindowString(6+offset, true, "        > GeometricSky.png is guarded by the Demon Guardian in 'The Basement'")
             .setWindowString(8+offset, true, "You will be transported to 'The Basement' in a few seconds")
-            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
             .print();
         // Controls
         String input = scanner.nextLine();
@@ -110,7 +110,7 @@ public class StoryFrame {
             .setWindowString(5+offset, true, "        > 'The User' is requesting SpiderWebs.png                              ")
             .setWindowString(6+offset, true, "        > SpiderWebs.png can be located in the 'The Underground'               ")
             .setWindowString(8+offset, true, "You will be transported to 'The Underground' in a few seconds")
-            .setWindowString(Settings.getHeight()-3, 5, "Press enter to continue...")
+            .setWindowString(5, Settings.getHeight()-3, "Press enter to continue...")
             .print();
         // Controls
         String input = scanner.nextLine();

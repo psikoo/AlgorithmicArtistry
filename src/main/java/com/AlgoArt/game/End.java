@@ -7,18 +7,27 @@ import com.AlgoArt.utils.Settings;
 import com.AlgoArt.utils.UI;
 
 public class End {
+
+    public enum Endings {
+        goodEnding,
+        badEnding,
+        trueEnding,
+        neutralEnding,
+        secretEnding,
+        noEnding
+    }
     
-    public End(String ending) {
-        if(ending.equalsIgnoreCase("good")) goodEnding();
-        else if(ending.equalsIgnoreCase("bad")) badEnding(); // TODO change to enum
-        else if(ending.equalsIgnoreCase("true")) trueEnding();
-        else if(ending.equalsIgnoreCase("neutral")) neutralEnding();
-        else if(ending.equalsIgnoreCase("secret")) secretEnding();
+    public End(Endings ending) {
+        if(ending == Endings.goodEnding) goodEnding();
+        else if(ending == Endings.badEnding) badEnding();
+        else if(ending == Endings.trueEnding) trueEnding();
+        else if(ending == Endings.neutralEnding) neutralEnding();
+        else if(ending == Endings.secretEnding) secretEnding();
     }
 
-    public static String checkGoodOrNeutral() {
-        if(!Player.player.getCompleteFractal() && !Player.player.getCompleteGeom() && !Player.player.getCompleteSpider()) return "good";
-        else return "neutral";
+    public static Endings checkGoodOrNeutral() {
+        if(!Player.player.getCompleteFractal() && !Player.player.getCompleteGeom() && !Player.player.getCompleteSpider()) return Endings.goodEnding;
+        else return Endings.neutralEnding;
     }
 
     private void goodEnding() {
@@ -108,7 +117,7 @@ public class End {
             .setWindowString(5+offset, true, "geometry-dash.fandom.com (Level 1) ")
             .setWindowString(6+offset, true, "undertale.fandom.com (Level 2)     ")
             .setWindowString(7+offset, true, "Thanks for playing")
-            .setWindowString(Settings.getHeight()-3, 5, "Press enter to end the program...")
+            .setWindowString(5, Settings.getHeight()-3, "Press enter to end the program...")
             .print();
         // Controls
         scanner.nextLine();

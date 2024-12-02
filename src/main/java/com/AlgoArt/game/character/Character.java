@@ -8,8 +8,8 @@ public abstract class Character {
     private Attack attack0;
     private Attack attack1;
     private Attack attack2;
-    private Action action0;
-    private Action action1;
+    private Heal action0;
+    private Heal action1;
 
     public String getName() { return name; }
     public String getDescription() { return description; }
@@ -18,12 +18,12 @@ public abstract class Character {
     public Attack getAttack0() { return attack0; }
     public Attack getAttack1() { return attack1; }
     public Attack getAttack2() { return attack2; }
-    public Action getAction0() { return action0; }
-    public Action getAction1() { return action1; }
+    public Heal getAction0() { return action0; }
+    public Heal getAction1() { return action1; }
 
     public void setHP(int value) { this.HP = value; }
 
-    public Character(String name, String description, int maxHP, Attack attack0, Attack attack1, Attack attack2, Action action0, Action action1) {
+    public Character(String name, String description, int maxHP, Attack attack0, Attack attack1, Attack attack2, Heal action0, Heal action1) {
         this.name = name;
         this.description = description;
         this.HP = maxHP;
