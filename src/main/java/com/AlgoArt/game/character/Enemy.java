@@ -1,8 +1,8 @@
 package com.AlgoArt.game.character;
 
 public class Enemy extends Character {
-    private static Heal genericHeal = Heal.genericHeal();  
-    private String reward = "";
+    private static Heal genericHeal = Heal.genericHeal(); //* Generic heal
+    private String reward = "";                           //* Png name given by the enemy
 
     public String getName() { return super.getName(); }
     public String getDescription() { return super.getDescription(); }
@@ -17,6 +17,18 @@ public class Enemy extends Character {
 
     public void setHP(int value) { super.setHP(value); }
 
+    /**
+     * Creates a "Character" object with the given parameters
+     * @param name
+     * @param description
+     * @param reward
+     * @param maxHP
+     * @param attack0
+     * @param attack1
+     * @param attack2
+     * @param action0
+     * @param action1
+     */
     public Enemy(String name, String description, String reward, int maxHP, Attack attack0, Attack attack1, Attack attack2, Heal action0, Heal action1) {
         super(name, description, maxHP, attack0, attack1, attack2, action0, action1);
         this.reward = reward;
