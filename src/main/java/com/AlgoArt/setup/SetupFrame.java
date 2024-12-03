@@ -5,17 +5,22 @@ import java.util.Scanner;
 import com.AlgoArt.utils.lib.Frame;
 
 public class SetupFrame {
-    private static int height = 20;
-    private static int width = 100;
-    private static boolean confirmHeight = false;
-    private static boolean confirmWidth = false;
+    private static int height = 20;               //* Base height
+    private static int width = 100;               //* Base width
+    private static boolean confirmHeight = false; //* Height has been confirmed
+    private static boolean confirmWidth = false;  //* Width has been confirmed
 
+    /**
+     * Prompt the user to select the correct height
+     * @return height
+     */
     public static int selectHeight() {
         confirmHeight = false;
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
+        //? Input is not 'c'
         while (!confirmHeight) {
-            // Draw frame
+            //* Draw frame
             new Frame(height, width, Frame.borderBuilder(1))
             .setWindowString(0, true, "[ Size Setup ]") 
             .setWindowString(2, true, "- Select the correct height -") 
@@ -27,7 +32,7 @@ public class SetupFrame {
             .setWindowString(2, 10, "[ -num ] height - number")
             .setWindowString(2, 11, "[ c ] confirm") 
             .print();
-            // Controls
+            //* Controls
             String input = scanner.nextLine();
             if(input.isBlank() || input.isEmpty());
             else if(input.equals("c")) confirmHeight = true;
@@ -36,13 +41,17 @@ public class SetupFrame {
         }
         return height;
     }
-
+    /**
+     * Prompt the user to select the correct width
+     * @return height
+     */
     public static int selectWidth() {
         confirmWidth = false;
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
+        //? Input is not 'c'
         while (!confirmWidth) {
-            // Draw frame
+            //* Draw frame
             new Frame(height, width, Frame.borderBuilder(1))
             .setWindowString(0, true, "[ Size Setup ]")
             .setWindowString(2, true, "- Select the correct width -")
@@ -53,16 +62,22 @@ public class SetupFrame {
             .setWindowString(2,10, "[ -num ] width - number")
             .setWindowString(2,11, "[ c ] confirm") 
             .print();
-            // Controls
+            //* Controls
             String input = scanner.nextLine();
-            if(input.equals("c")) confirmWidth = true;
+            if(input.equalsIgnoreCase("c")) confirmWidth = true;
             else if(input.charAt(0) == '+') width+=extractNumber(input);
             else if(input.charAt(0) == '-') width-=extractNumber(input);
         }
         return width;
     }
 
+    /**
+     * Takes in s string, removes the first character and tries to convert the rest to a number
+     * @param string
+     * @return number
+     */
     private static int extractNumber(String string) {
+        //? (String)+25 => (int)25
         try { return Integer.valueOf(string.substring(1)); } 
         catch (Exception ignore) { return 0; }
     }

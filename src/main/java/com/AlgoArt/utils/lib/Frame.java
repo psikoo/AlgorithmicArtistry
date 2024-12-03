@@ -92,7 +92,6 @@ public class Frame {
         return this;
     } public Frame setWindowString(int y, boolean center, String input) {
         int x = 0;
-        System.out.println();
         if((width-2)-input.length() == 0) { x = 1; } 
         else { x = (((width-2)-input.length())/2)+1; } // rounds down
         if(y < 0) y = 0; // avoids errors if string is longer than width
@@ -163,7 +162,7 @@ public class Frame {
 
     // Border Builder
     // https://en.wikipedia.org/wiki/Box-drawing_characters
-    public static char[] borderBuilder(int mode) { // TODO update cliFrame on github + add self center with array [[y+offset, x, text],[y+offset, x, text]]
+    public static char[] borderBuilder(int mode) {
         char[] border = new char[9];
         if(mode == 0) {
             border[Piece.horizont.ordinal()] = '─'; border[Piece.vertical.ordinal()] = '│'; border[Piece.tlCorner.ordinal()] = '┌';

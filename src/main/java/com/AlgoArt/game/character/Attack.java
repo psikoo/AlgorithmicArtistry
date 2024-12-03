@@ -9,11 +9,25 @@ public class Attack extends Action {
     public int getCritChance() { return super.getCritChance(); }
     public int getCritMultiplier() { return super.getCritMulti(); }
 
+    /**
+     * Creates an "Attack" object with the given parameters
+     * @param name 
+     * @param description
+     * @param HPChange
+     * @param critChance
+     * @param critMulti
+     * @param missChance
+     * @param multiChance
+     */
     public Attack(String name, String description, int HPChange, int critChance, int critMulti, int missChance, int multiChance) {
         super(name, description, HPChange, multiChance, missChance, critChance, critMulti);
     }
 
-    public static Attack genericAttackBuilder() {
+    /**
+     * Generic attack
+     * @return genericAttack
+     */
+    public static Attack genericAttack() {
         return new Attack("GenericAttack", "GenericAttackDesc", 0, 0, 0, 0, 0);
     }
 }
